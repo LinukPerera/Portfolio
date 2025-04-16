@@ -1,0 +1,76 @@
+.slidingImages {
+    display: flex;
+    flex-direction: column;
+    gap: 3vw;
+    position: relative;
+    margin-top: 100px;
+    background-color: white;
+    z-index: 1;
+    overflow: hidden;
+
+    @media (min-width: 768px) {
+        margin-top: 200px;
+    }
+
+    .slider {
+        display: flex;
+        position: relative;
+        gap: 3vw;
+        width: 120vw;
+        left: -10vw;
+
+        .project {
+            width: 22.75%; /* Adjusted for mobile: (100vw - 9vw gaps) / 4 */
+            height: 35vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+
+            @media (min-width: 768px) {
+                width: 25%; /* Unchanged for PC view */
+                height: 20vw;
+            }
+
+            .imageContainer {
+                position: relative;
+                width: 90%;
+                height: 90%;
+
+                @media (min-width: 768px) {
+                    width: 80%;
+                    height: 80%;
+                }
+
+                img {
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    .circleContainer {
+        background-color: red;
+        position: relative;
+        margin-top: 50px;
+
+        @media (min-width: 768px) {
+            margin-top: 100px;
+        }
+
+        .circle {
+            height: 1550%;
+            width: 120%;
+            left: -10%;
+            border-radius: 0 0 50% 50%;
+            background-color: white;
+            z-index: 1;
+            position: absolute;
+            box-shadow: 0px 30px 25px rgba(0, 0, 0, 0.748);
+
+            @media (min-width: 768px) {
+                box-shadow: 0px 60px 50px rgba(0, 0, 0, 0.748);
+            }
+        }
+    }
+}

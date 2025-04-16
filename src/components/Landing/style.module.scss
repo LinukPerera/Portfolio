@@ -1,0 +1,82 @@
+.landing {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+  }
+  
+  .sliderContainer {
+    position: absolute;
+    top: calc(100vh - 250px);
+    width: 100%;
+    overflow: hidden;
+    
+    @media (min-width: 768px) {
+      top: calc(100vh - 350px);
+    }
+  }
+  
+  .slider {
+    position: relative;
+    white-space: nowrap;
+    display: inline-flex;
+    will-change: transform;
+  }
+  
+  .slider p {
+    position: relative;
+    margin: 0;
+    color: white;
+    font-size: 80px;
+    font-weight: 500;
+    padding-right: 30px;
+    display: inline-block;
+    will-change: transform;
+    
+    @media (min-width: 768px) {
+      font-size: 230px;
+      padding-right: 50px;
+    }
+  }
+  
+  .slider p:nth-of-type(2) {
+    position: absolute;
+    left: 100%;
+    top: 0;
+  }
+
+  .description {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+    width: 80%;
+    
+    @media (min-width: 768px) {
+      top: 35%;
+      left: 65%;
+      font-size: 24px;
+      width: auto;
+    }
+    
+    p {
+      margin: 0;
+      margin-bottom: 10px;
+    }
+    
+    svg {
+      transform: scale(1.5);
+      margin-bottom: 50px;
+      
+      @media (min-width: 768px) {
+        transform: scale(2);
+        margin-bottom: 100px;
+      }
+    }
+  }
+}

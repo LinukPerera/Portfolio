@@ -1,0 +1,300 @@
+.contact {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #141516;
+    position: relative;
+    padding: 0 20px;
+
+    .body {
+        padding-top: 100px;
+        width: 100%;
+        max-width: 1800px;
+        background-color: #141516;
+
+        @media (min-width: 768px) {
+            padding-top: 200px;
+        }
+
+        .title {
+            border-bottom: 1px solid rgb(134, 134, 134);
+            padding-bottom: 50px;
+            margin-left: 0;
+            margin-right: 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @media (min-width: 768px) {
+                padding-bottom: 100px;
+                margin-left: 200px;
+                margin-right: 200px;
+                align-items: flex-start;
+            }
+
+            span {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 30px;
+                margin-bottom: 20px;
+
+                @media (min-width: 768px) {
+                    flex-direction: row;
+                    gap: 0;
+                    margin-bottom: 0;
+                }
+
+                .imageContainer {
+                    width: 80px;
+                    height: 80px;
+                    position: relative;
+                    border-radius: 50%;
+                    overflow: hidden;
+
+                    @media (min-width: 768px) {
+                        width: 100px;
+                        height: 100px;
+                    }
+
+                    img {
+                        object-fit: cover;
+                    }
+                }
+
+                h2 {
+                    margin-left: 0;
+                    text-align: center;
+
+                    @media (min-width: 768px) {
+                        margin-left: 0.3em;
+                        text-align: left;
+                    }
+                }
+            }
+
+            h2 {
+                font-size: 10vw;
+                margin: 0;
+                font-weight: 300;
+                line-height: 1.2;
+                text-align: center;
+
+                @media (min-width: 768px) {
+                    font-size: 5vw;
+                    line-height: normal;
+                    text-align: left;
+                }
+            }
+
+            .buttonContainer {
+                position: relative;
+                margin-top: 30px;
+                left: 0;
+                display: flex;
+                justify-content: center;
+
+                @media (min-width: 768px) {
+                    position: absolute;
+                    left: calc(100% - 400px);
+                    top: calc(100% - 75px);
+                    margin-top: 0;
+                    justify-content: flex-start;
+                }
+            }
+
+            .button {
+                width: 140px;
+                height: 140px;
+                background-color: #455CE9;
+                color: white;
+                border-radius: 50%;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+
+                @media (min-width: 768px) {
+                    width: 180px;
+                    height: 180px;
+                    position: absolute;
+                }
+
+                p {
+                    margin: 0;
+                    font-size: 14px;
+                    font-weight: 300;
+                    z-index: 2;
+                    position: relative;
+                }
+            }
+
+            svg {
+                display: none;
+
+                @media (min-width: 768px) {
+                    display: block;
+                    position: absolute;
+                    top: 30%;
+                    left: 100%;
+                }
+            }
+        }
+
+        .nav {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 50px;
+            margin-left: 0;
+            margin-right: 0;
+            align-items: center;
+
+            @media (min-width: 768px) {
+                flex-direction: row;
+                gap: 20px;
+                margin-top: 100px;
+                margin-left: 200px;
+                margin-right: 200px;
+                align-items: flex-start;
+            }
+
+            @media (max-width: 767px) {
+                .rounded {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    max-width: 200px;
+                }
+
+                p {
+                    margin: 0;
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            justify-content: space-between;
+            margin-top: 100px;
+            padding: 20px;
+
+            @media (min-width: 768px) {
+                flex-direction: row;
+                gap: 0;
+                margin-top: 200px;
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                @media (min-width: 768px) {
+                    flex-direction: row;
+                    gap: 10px;
+                }
+
+                span {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+
+                    @media (min-width: 768px) {
+                        gap: 15px;
+                    }
+                }
+
+                /* Align socials in PC view */
+                span:has(h3:contains("socials")) {
+                    @media (min-width: 768px) {
+                        .socialLinks {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            gap: 5px; /* Reduced gap for tighter alignment */
+
+                            .magnetic {
+                                display: inline-block; /* Ensure Magnetic doesn't interfere */
+                                position: static; /* Reset positioning */
+                                transform: none; /* Reset transforms */
+                                margin: 0;
+                                padding: 0;
+                            }
+
+                            p {
+                                margin: 0;
+                                padding: 2.5px;
+                                display: inline-block;
+                                position: static; /* Reset positioning */
+                                transform: none; /* Reset transforms */
+                            }
+                        }
+                    }
+                }
+
+                p, h3 {
+                    margin: 0;
+                    padding: 2.5px;
+                    cursor: pointer;
+                }
+
+                p {
+                    &::after {
+                        content: "";
+                        width: 0%;
+                        height: 1px;
+                        background-color: white;
+                        display: block;
+                        margin-top: 2px;
+                        position: relative;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        transition: width 0.2s linear;
+                    }
+
+                    &:hover {
+                        &::after {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                h3 {
+                    color: grey;
+                    cursor: default;
+                    font-weight: 300;
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+}
+
+.a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+
+    @media (min-width: 768px) {
+        width: auto;
+        text-align: left;
+        display: inline-block;
+    }
+}

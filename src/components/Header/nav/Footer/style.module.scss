@@ -1,0 +1,54 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 12px;
+    gap: 15px;
+    margin-top: 40px;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 40px;
+        margin-top: 0;
+    }
+}
+
+.a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    position: relative; /* For positioning the underline */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions for color and scale */
+    
+    @media (min-width: 768px) {
+        padding: 10px 20px;
+        text-align: left;
+    }
+
+    /* Underline effect */
+    &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 1px; /* Thinner underline for smaller text */
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgb(200, 200, 200);
+        transition: width 0.3s ease;
+    }
+
+    /* Hover effects */
+    &:hover {
+        color: rgb(200, 200, 200); /* Lighter color on hover */
+        transform: scale(1.03); /* Subtle scale increase for smaller text */
+        
+        &::after {
+            width: 60%; /* Underline grows to 60% of the text width */
+        }
+    }
+}

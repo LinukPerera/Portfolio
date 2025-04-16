@@ -1,0 +1,91 @@
+.body {
+    width: 100%;
+    height: 100vh;
+    background-color: #36768c;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cardsContainer {
+    display: flex;  /* Use flexbox to align items horizontally */
+    justify-content: space-between; /* Space between cards */
+    flex-wrap: wrap; /* Allow the cards to wrap if the screen size is small */
+    gap: 20px;  /* Space between cards */
+    padding: 20px; /* Add some padding around the container */
+    max-width: 1300px;  /* Optional: Limit the maximum width */
+    margin: 0 auto;  /* Center the container horizontally */
+    min-height: 120vh;
+  }
+  
+  .card {
+    width: 320px; /* Card width */
+    height: 500px; /* Card height */
+    border-radius: 20px;
+    overflow: hidden;
+    border: 8px solid whitesmoke;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .cardImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+  
+  .cardBody {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%; /* Initially positioned off the card */
+    background: rgba(31, 61, 71, 0.55);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    color: aliceblue;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: left 1s ease-in-out;
+    box-sizing: border-box;
+  }
+  
+  .card:hover .cardBody {
+    left: 0; /* Slide in from right */
+  }
+  
+  .cardTitle {
+    text-transform: uppercase;
+    font-family: Cambria;
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 5px; /* Adjust gap between Title and Subtitle */
+  }
+  
+  .cardSubTitle {
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 15px; /* Adjust gap between Subtitle and Info */
+  }
+  
+  .cardInfo {
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+    max-height: 150px;
+    overflow-y: auto;
+  }
+  

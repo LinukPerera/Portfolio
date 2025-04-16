@@ -1,0 +1,87 @@
+.project {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 30px 20px;
+    border-top: 1px solid rgb(201, 201, 201);
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative; /* For background positioning */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 0.8s ease; /* Smooth transition for opacity on hover */
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        align-items: center;
+        padding: 50px 100px;
+    }
+
+    h2 {
+        font-size: 28px;
+        margin: 0px 0px 15px 0px;
+        font-weight: 400;
+        transition: all 0.4s;
+        position: relative; /* Ensure text stays above background */
+        z-index: 1;
+
+        @media (min-width: 768px) {
+            font-size: 60px;
+            margin: 0px;
+        }
+    }
+
+    p {
+        transition: all 0.4s;
+        font-weight: 300;
+        margin: 0;
+        position: relative; /* Ensure text stays above background */
+        z-index: 1;
+    }
+
+    &:last-of-type {
+        border-bottom: 1px solid rgb(201, 201, 201);
+    }
+
+    &:hover {
+        opacity: 0.5;
+
+        h2 {
+            transform: translateX(-10px);
+        }
+
+        p {
+            transform: translateX(10px);
+        }
+    }
+
+    /* Mobile-specific background image styles */
+    @media (max-width: 767px) {
+        background-color: transparent; /* Default background */
+        transition: opacity 0.3s ease; /* Smooth transition for hover opacity */
+
+        &.hovered {
+            opacity: 0.8; /* Slightly reduce opacity to make the background image more visible */
+            background-color: rgba(0, 0, 0, 0.5); /* Add a dark overlay for better text readability */
+            transition: background-color 0.3s ease; /* Smooth transition for the overlay */
+
+            h2, p {
+                color: white; /* Make text white for better contrast against the background */
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add a subtle shadow for readability */
+                transition: color 0.3s ease, text-shadow 0.3s ease;
+            }
+        }
+
+        &:not(.hovered) {
+            background-image: none !important; /* Ensure no background image when not hovered */
+        }
+    }
+
+    /* Ensure desktop view remains unchanged */
+    @media (min-width: 768px) {
+        background-image: none !important; /* No background image in desktop view */
+    }
+}

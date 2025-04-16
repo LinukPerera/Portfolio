@@ -1,0 +1,294 @@
+/* Reset margin and padding for the entire page */
+
+
+.body {
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Container for the entire page */
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 1s;
+}
+
+.container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  padding: 0;
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+.image {
+  display: flex;
+  width: 100px;
+  height: 100px;
+}
+
+.logo:nth-child(2) {
+  transition-delay: 400ms;
+}
+
+.logo:nth-child(3) {
+  transition-delay: 800ms;
+}
+
+.logo:nth-child(4) {
+  transition-delay: 1200ms;
+}
+
+/* Body section, where the main content goes */
+.body {
+  background-color: #282828;
+  color: white;  /* Make text visible on a black background */
+  padding: 0;  /* Ensure no extra padding */
+  margin: 0;  /* Ensure no extra margin */
+  display: grid;  /* Makes the body a grid */
+  grid-template-rows: repeat(4, 100vh);  /* Ensures each section fills 100vh */
+  justify-items: center;  /* Centers content horizontally */
+  align-items: center;  /* Centers content vertically */
+}
+
+.section {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 100vh; /* Ensure each section takes full screen */
+  width: 100%;
+  scroll-snap-align: start;
+  padding: 0;  /* Ensure no padding */
+  background-color: black;
+  color: white;
+}
+
+.parent {
+  display: flex;
+  justify-content: center; /* Centers the child horizontally */
+  align-items: center; /* Centers the child vertically */
+  height: 5vh; /* Takes up full viewport height */
+  width: 100%; /* Takes up full width */
+}
+
+.pa {
+  display: flex;
+  justify-content: center; /* Centers the child horizontally */
+  align-items: center; /* Centers the child vertically */
+  height: 13.5vh; /* Takes up full viewport height */
+  width: 100%; /* Takes up full width */
+}
+
+/* Optional: Handle individual section background images and text alignment */
+.titleDescriptionSection {
+  background-image: url('/images/abt1.png'); /* Update image path */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: grid;
+  place-items: center;
+  min-height: 100vh; /* Full height */
+  /* Optional */
+}
+
+.description {
+  text-align: center;
+  font-family: Arial;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #2C3E50, #434343, #676767, #888888, #999999, #ffffff, #999999, #888888, #676767, #434343, #2C3E50); /* Darker Gradient */
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate-gradient 5s linear infinite;
+}
+
+.buttonContainer {
+  position: absolute;
+  left: calc(100% - 400px);
+  top: calc(100% - 500px);
+}
+
+.button {
+  width: 180px;
+  height: 180px;
+  background-color: #455CE9;
+  color: white;
+  font-family: sans-serif;
+  border-radius: 50%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+@keyframes animate-gradient {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%; /* Ensure the gradient moves across the text */
+  }
+}
+
+.title {
+  font-size: 8rem;
+  font-weight: bold;
+  font-family: Arial;
+  text-align: center;
+  display: grid;
+  place-items: center;
+}
+
+.text {
+  font-size: 10rem;
+  letter-spacing: 20px;
+  width: 100%;
+  font-family: Arial;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 500;
+  animation: 
+      typing 2s,
+      cursor .4s step-end infinite alternate;
+}
+
+.h2 {
+  font-family: Arial;
+  font-size: 2.5rem;
+  text-align: center;
+  display: flex;
+  font-size: 2.5rem;
+  position: relative;
+  padding: 0;
+}
+
+.p {
+  font-family: Arial;
+  font-size: 2rem;
+  background-size: 200%;
+  text-align: center;
+  display: flex;
+}
+
+.p2 {
+  text-align: center;
+  font-family: Arial;
+  font-size: 2rem;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #80e961, #00b3ff, #5603bd, #00b3ff, #80e961); /* Darker Gradient */
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate-gradient 5s linear infinite;
+}
+
+@keyframes cursor {
+  50% { border-color: transparent }
+}
+
+@keyframes typing {
+  from {width: 0}
+}
+
+.navbar {
+  position: fixed; /* Fixed at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100; /* Ensure the navbar is above other content */
+}
+
+/* Masking individual words for animations */
+.mask {
+  display: inline-block;
+}
+
+/* Media Queries for Mobile and Tablet */
+@media (max-width: 768px) {
+
+  /* Make sure all titles and text scale down */
+  .title {
+    font-size: 3.5rem; /* Reduced size for tablet */
+  }
+
+  .description {
+    font-size: 2rem; /* Adjust description text size for smaller screens */
+  }
+
+  .text {
+    font-size: 4rem; /* Adjust font size for large mobile */
+  }
+
+  .p {
+    font-size: 1rem;
+  }
+
+  .p2 {
+    font-size: 1rem;
+  }
+
+  .buttonContainer {
+    left: calc(100% - 250px); /* Adjust position of button */
+    top: calc(100% - 300px); /* Adjust position of button */
+  }
+
+  .button {
+    width: 120px;
+    height: 120px;
+    font-size: 14px; /* Smaller button text */
+  }
+
+  .titleDescriptionSection {
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Smaller screen settings */
+  .title {
+    font-size: 2.5rem; /* Further reduced font size for small screens */
+  }
+
+  .description {
+    font-size: 1.5rem; /* Adjust font size for description */
+  }
+
+  .text {
+    font-size: 5rem; /* Reduced text size for small devices */
+  }
+
+  .p {
+    font-size: 1.2rem;
+  }
+
+  .p2 {
+    font-size: 1.2rem;
+  }
+
+  .buttonContainer {
+    left: calc(100% - 200px); /* Adjust button to fit within screen */
+    top: calc(100% - 250px); /* Adjust button position */
+  }
+
+  .button {
+    width: 100px;
+    height: 100px;
+    font-size: 12px; /* Smaller button text for mobile */
+  }
+
+  .navbar {
+    font-size: 0.9rem; /* Reduce navbar font size on small screens */
+  }
+}
+

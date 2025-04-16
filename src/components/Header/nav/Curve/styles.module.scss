@@ -1,0 +1,14 @@
+.svgCurve {
+    position: absolute;
+    top: 0;
+    left: -99px;
+    width: 100px;
+    height: 100%;
+    fill: rgb(41, 41, 41);
+    stroke: none;
+    display: none;
+    
+    @media (min-width: 768px) {
+        display: block;
+    }
+}
