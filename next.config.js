@@ -1,10 +1,4 @@
-// vite.config.js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+/** @type {import('next').NextConfig} */
+const nextConfig = {}
 
-export default defineConfig({
-  plugins: [react()],
-  root: './',
-  publicDir: 'public',
-  base: process.env.VITE_BASE_PATH || "/Portfolio"
-})
+module.exports = nextConfig
