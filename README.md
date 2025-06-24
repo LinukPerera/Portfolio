@@ -1,7 +1,7 @@
 # Portfolio
 My Portfolio Website
 
-'''
+```
 Portfolio/
 ├── index.html          
 ├── vite.config.js
@@ -14,4 +14,4 @@ Portfolio/
     └── common/
     └── components/
     └── pages/
-'''
+```
