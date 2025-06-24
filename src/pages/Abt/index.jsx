@@ -23,24 +23,23 @@ const About = () => {
 
   // IntersectionObserver for hidden elements
   useEffect(() => {
+  if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add(styles.show); // Add show class
+          entry.target.classList.add(styles.show);
         } else {
-          entry.target.classList.remove(styles.show); // Remove show class
+          entry.target.classList.remove(styles.show);
         }
       });
     });
 
-    const hiddenElements = document.querySelectorAll(`.${styles.hidden}`);
+    const hiddenElements = document.querySelectorAll('.hidden');
     hiddenElements.forEach((el) => observer.observe(el));
 
-    // Clean up observer when component unmounts
-    return () => {
-      hiddenElements.forEach((el) => observer.unobserve(el));
-    };
-  }, []); // Empty dependency array ensures this only runs once after mount
+    return () => observer.disconnect();
+  }
+}, []);
 
   
   return (
