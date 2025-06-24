@@ -110,6 +110,7 @@ export default function Home() {
 
   // Reset when component becomes visible again
   useEffect(() => {
+  if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -127,7 +128,8 @@ export default function Home() {
         observer.unobserve(sliderContainer.current);
       }
     };
-  }, []);
+  }
+}, []);
 
   return (
     <motion.main variants={slideUp} initial="initial" animate="enter" className={styles.landing}>
