@@ -1,0 +1,7 @@
+.main {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  overflow: visible;
+  touch-action: pan-y; // Enable vertical scrolling while preventing zoom
+}
