@@ -1,56 +1,56 @@
-.header{
+.header {
     position: absolute;
     display: flex;
     z-index: 1;
     top: 0;
     color: white;
-    padding: 35px;
+    padding: 20px; /* Reduced padding for mobile */
     justify-content: space-between;
     width: 100%;
     font-weight: 300;
     box-sizing: border-box;
     align-items: center;
-    
-    .logo{
+
+    .logo {
         display: flex;
         cursor: pointer;
-        p{
+        p {
             margin: 0px;
             transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
         }
-        .name{
+        .name {
             display: flex;
             position: relative;
             overflow: hidden;
             white-space: nowrap;
             margin-left: 5px;
             transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-            p{
+            p {
                 position: relative;
                 transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-                &:nth-of-type(2){
+                &:nth-of-type(2) {
                     padding-left: 0.3em;
                 }
-                &:nth-of-type(3){
+                &:nth-of-type(3) {
                     position: absolute;
                     left: 120px;
                     padding-left: 0.3em;
                 }
             }
         }
-        &:hover{
-            .copyright{
+        &:hover {
+            .copyright {
                 transform: rotate(360deg);
             }
-            .name{
+            .name {
                 padding-right: 30px;
-                .year{
+                .year {
                     transform: translateX(-100%);
                 }
-                .linuk{
+                .linuk {
                     transform: translateX(-110px);
                 }
-                .perera{
+                .perera {
                     transform: translateX(-110px);
                 }
             }
@@ -58,43 +58,41 @@
     }
 
     .nav a {
-        color: white;  // Set text color to white
-        text-decoration: none;  // Remove underline
+        color: white;
+        text-decoration: none;
         
-        // Optionally, you can add custom hover effects
         &:hover {
-          color: white;  // Maintain the white color on hover
-          text-decoration: none;  // No underline on hover
+            color: white;
+            text-decoration: none;
         }
       
-        // Optional: Style for active link (when it's selected)
         &.active {
-          color: purple;  // Set the active link color (you can change this to your preferred color)
-          text-decoration: none;
+            color: purple;
+            text-decoration: none;
         }
-      }
+    }
 
-    .nav{
+    .nav {
         display: flex;
         align-items: center;
 
-        .el{
+        .el {
             display: flex;
             flex-direction: column;
             position: relative;
             z-index: 1;
-            padding: 15px;
+            padding: 10px; /* Reduced padding for mobile */
             cursor: pointer;
-            &:hover{
-                .indicator{
+            &:hover {
+                .indicator {
                     transform: scale(1);
                 }
             }
-            .indicator{
+            .indicator {
                 position: absolute;
                 width: 5px;
                 height: 5px;
-                top: 45px;
+                top: 35px; /* Adjusted for smaller padding */
                 left: 50%;
                 background-color: white;
                 border-radius: 50%;
@@ -102,22 +100,23 @@
                 transition: transform 0.2s cubic-bezier(0.76, 0, 0.24, 1);
             }
         }
-        a{
+        a {
             cursor: pointer;
         }
     } 
 }
-.headerButtonContainer{
+
+.headerButtonContainer {
     transform: scale(0);
     position: fixed;
     right: 0px;
     z-index: 4;
 
-    .button{
+    .button {
         position: relative;
-        margin: 20px;
-        width: 80px;
-        height: 80px;
+        margin: 15px; /* Reduced margin for mobile */
+        width: 60px; /* Smaller button size for mobile */
+        height: 60px;
         border-radius: 50%;
         background-color: #1C1D20;
         cursor: pointer;
@@ -126,11 +125,11 @@
         justify-content: center;
     }
     
-    .burger{
+    .burger {
         width: 100%;
         position: relative;
         z-index: 1;
-        &::after, &::before{
+        &::after, &::before {
             content: "";
             display: block;
             height: 1px;
@@ -141,26 +140,84 @@
             transition: transform 0.3s;
         }
     
-        &::after{
+        &::after {
             top: -5px;
         }
     
-        &::before{
+        &::before {
             top: 5px;
         }
     }
     
-    .burgerActive{
-    
-        &::after{
+    .burgerActive {
+        &::after {
             transform: rotate(45deg);
             top: -1px;
         }
     
-        &::before{
+        &::before {
             transform: rotate(-45deg);
             top: 0px;
         }
-        
+    }
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    .header {
+        padding: 35px; /* Restore original padding */
+        justify-content: space-between; /* Ensure space-between for larger screens */
+    }
+
+    .header .nav .el {
+        padding: 15px; /* Restore original padding */
+    }
+
+    .header .nav .el .indicator {
+        top: 45px; /* Restore original top position */
+    }
+
+    .headerButtonContainer .button {
+        margin: 20px; /* Restore original margin */
+        width: 80px; /* Restore original size */
+        height: 80px;
+    }
+}
+
+/* Media query for mobile screens */
+@media (max-width: 767px) {
+    .header {
+        flex-direction: row; /* Keep row direction for consistency */
+        justify-content: center; /* Center the header content */
+        padding: 15px; /* Further reduce padding for very small screens */
+        font-size: 0.9rem; /* Slightly reduce font size for mobile */
+    }
+
+    .header .logo {
+        flex-shrink: 0; /* Prevent logo from shrinking too much */
+    }
+
+    .header .nav {
+        flex-direction: row; /* Keep navigation items in a row */
+        gap: 10px; /* Add spacing between nav items */
+    }
+
+    .header .nav .el {
+        padding: 8px; /* Further reduce padding for mobile */
+    }
+
+    .header .nav .el .indicator {
+        top: 30px; /* Adjust indicator position for smaller padding */
+    }
+
+    .headerButtonContainer {
+        transform: scale(1); /* Make the burger menu visible on mobile */
+        right: 10px; /* Adjust position for better alignment */
+    }
+
+    .headerButtonContainer .button {
+        width: 50px; /* Even smaller button for very small screens */
+        height: 50px;
+        margin: 10px;
     }
 }
