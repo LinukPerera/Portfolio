@@ -1,114 +1,100 @@
-.header {
+.header{
     position: absolute;
     display: flex;
     z-index: 1;
     top: 0;
     color: white;
-    padding: 2.5rem; /* Fixed rem for consistent padding, scales better */
+    padding: 35px;
     justify-content: space-between;
     width: 100%;
     font-weight: 300;
     box-sizing: border-box;
     align-items: center;
-
-    .logo {
+    
+    .logo{
         display: flex;
         cursor: pointer;
-        gap: 0.5rem; /* Reduced gap for compactness */
-
-        p {
-            margin: 0;
-            font-size: 1rem; /* Standard size for readability */
+        p{
+            margin: 0px;
             transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
         }
-
-        .name {
+        .name{
             display: flex;
             position: relative;
             overflow: hidden;
             white-space: nowrap;
-            margin-left: 0.3rem; /* Reduced for tighter spacing */
+            margin-left: 5px;
             transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-
-            p {
+            p{
                 position: relative;
                 transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-                font-size: 1rem;
-
-                &:nth-of-type(2) {
-                    padding-left: 0.15em;
+                &:nth-of-type(2){
+                    padding-left: 0.3em;
                 }
-
-                &:nth-of-type(3) {
+                &:nth-of-type(3){
                     position: absolute;
-                    left: 6rem; /* Reduced from 120px to prevent overflow */
-                    padding-left: 0.15em;
+                    left: 120px;
+                    padding-left: 0.3em;
                 }
             }
         }
-
-        &:hover {
-            .copyright {
+        &:hover{
+            .copyright{
                 transform: rotate(360deg);
             }
-
-            .name {
-                padding-right: 1.5rem; /* Reduced for compactness */
-                .year {
+            .name{
+                padding-right: 30px;
+                .year{
                     transform: translateX(-100%);
                 }
-
-                .linuk {
-                    transform: translateX(-5rem); /* Reduced to avoid excessive shift */
+                .linuk{
+                    transform: translateX(-110px);
                 }
-
-                .perera {
-                    transform: translateX(-5rem);
+                .perera{
+                    transform: translateX(-110px);
                 }
             }
         }
     }
 
-    .nav {
+    .nav a {
+        color: white;  // Set text color to white
+        text-decoration: none;  // Remove underline
+        
+        // Optionally, you can add custom hover effects
+        &:hover {
+          color: white;  // Maintain the white color on hover
+          text-decoration: none;  // No underline on hover
+        }
+      
+        // Optional: Style for active link (when it's selected)
+        &.active {
+          color: purple;  // Set the active link color (you can change this to your preferred color)
+          text-decoration: none;
+        }
+      }
+
+    .nav{
         display: flex;
         align-items: center;
-        gap: 1rem; /* Reduced gap for tighter nav */
 
-        a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem; /* Slightly smaller for balance */
-
-            &:hover {
-                color: white;
-                text-decoration: none;
-            }
-
-            &.active {
-                color: purple;
-                text-decoration: none;
-            }
-        }
-
-        .el {
+        .el{
             display: flex;
             flex-direction: column;
             position: relative;
             z-index: 1;
-            padding: 0.8rem; /* Reduced padding for touch targets */
+            padding: 15px;
             cursor: pointer;
-
-            &:hover {
-                .indicator {
+            &:hover{
+                .indicator{
                     transform: scale(1);
                 }
             }
-
-            .indicator {
+            .indicator{
                 position: absolute;
-                width: 0.3rem;
-                height: 0.3rem;
-                top: 2rem; /* Adjusted to align with padding */
+                width: 5px;
+                height: 5px;
+                top: 45px;
                 left: 50%;
                 background-color: white;
                 border-radius: 50%;
@@ -116,20 +102,22 @@
                 transition: transform 0.2s cubic-bezier(0.76, 0, 0.24, 1);
             }
         }
-    }
+        a{
+            cursor: pointer;
+        }
+    } 
 }
-
-.headerButtonContainer {
+.headerButtonContainer{
     transform: scale(0);
     position: fixed;
-    right: 1rem;
+    right: 0px;
     z-index: 4;
 
-    .button {
+    .button{
         position: relative;
-        margin: 1rem;
-        width: 3rem; /* Reduced for mobile */
-        height: 3rem;
+        margin: 20px;
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
         background-color: #1C1D20;
         cursor: pointer;
@@ -137,203 +125,42 @@
         align-items: center;
         justify-content: center;
     }
-
-    .burger {
+    
+    .burger{
         width: 100%;
         position: relative;
         z-index: 1;
-
-        &::after,
-        &::before {
+        &::after, &::before{
             content: "";
             display: block;
-            height: 0.1rem;
-            width: 50%;
+            height: 1px;
+            width: 40%;
             margin: auto;
             background-color: white;
             position: relative;
             transition: transform 0.3s;
         }
-
-        &::after {
-            top: -0.4rem;
+    
+        &::after{
+            top: -5px;
         }
-
-        &::before {
-            top: 0.4rem;
+    
+        &::before{
+            top: 5px;
         }
     }
-
-    .burgerActive {
-        &::after {
+    
+    .burgerActive{
+    
+        &::after{
             transform: rotate(45deg);
-            top: -0.1rem;
+            top: -1px;
         }
-
-        &::before {
+    
+        &::before{
             transform: rotate(-45deg);
-            top: 0;
+            top: 0px;
         }
-    }
-}
-
-/* Media query for mobile screens (below 768px) */
-@media screen and (max-width: 768px) {
-    .header {
-        padding: 1.5rem; /* Reduced for mobile */
-
-        .logo {
-            gap: 0.3rem;
-
-            p {
-                font-size: 0.8rem;
-            }
-
-            .name {
-                margin-left: 0.2rem;
-
-                p {
-                    font-size: 0.8rem;
-
-                    &:nth-of-type(3) {
-                        left: 4rem;
-                    }
-                }
-            }
-
-            &:hover {
-                .name {
-                    padding-right: 1rem;
-                    .linuk,
-                    .perera {
-                        transform: translateX(-3.5rem);
-                    }
-                }
-            }
-        }
-
-        .nav {
-            gap: 0.5rem;
-
-            a {
-                font-size: 0.7rem;
-            }
-
-            .el {
-                padding: 0.5rem;
-
-                .indicator {
-                    width: 0.2rem;
-                    height: 0.2rem;
-                    top: 1.2rem;
-                }
-            }
-        }
-    }
-
-    .headerButtonContainer {
-        right: 0.5rem;
-
-        .button {
-            margin: 0.5rem;
-            width: 2.5rem;
-            height: 2.5rem;
-        }
-        .burger {
-            &::after {
-                top: -0.3rem;
-            }
-
-            &::before {
-                top: 0.3rem;
-            }
-        }
-
-        .burgerActive {
-            &::after {
-                top: -0.05rem;
-            }
-        }
-    }
-}
-
-/* Extra small screens (below 360px) */
-@media screen and (max-width: 360px) {
-    .header {
-        padding: 1rem;
-
-        .logo {
-            gap: 0.2rem;
-
-            p {
-                font-size: 0.7rem;
-            }
-
-            .name {
-                margin-left: 0.15rem;
-
-                p {
-                    font-size: 0.7rem;
-
-                    &:nth-of-type(3) {
-                        left: 3.5rem;
-                    }
-                }
-            }
-
-            &:hover {
-                .name {
-                    padding-right: 0.8rem;
-                    .linuk,
-                    .perera {
-                        transform: translateX(-3rem);
-                    }
-                }
-            }
-        }
-
-        .nav {
-            gap: 0.3rem;
-
-            a {
-                font-size: 0.6rem;
-            }
-
-            .el {
-                padding: 0.4rem;
-
-                .indicator {
-                    width: 0.15rem;
-                    height: 0.15rem;
-                    top: 1rem;
-                }
-            }
-        }
-    }
-
-    .headerButtonContainer {
-        right: 0.3rem;
-
-        .button {
-            margin: 0.4rem;
-            width: 2rem;
-            height: 2rem;
-        }
-
-        .burger {
-            &::after {
-                top: -0.25rem;
-            }
-
-            &::before {
-                top: 0.25rem;
-            }
-        }
-
-        .burgerActive {
-            &::after {
-                top: -0.04rem;
-            }
-        }
+        
     }
 }
