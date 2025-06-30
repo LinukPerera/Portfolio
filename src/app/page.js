@@ -11,21 +11,32 @@ import Contact from '../components/Contact';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Add no-scroll class during loading
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    // Set loading class
     document.body.classList.add('no-scroll');
     
+    // Different timing for mobile vs desktop
+    const loadTime = isMobile ? 2000 : 3000; // Longer duration for PC
+
     (async () => {
       try {
         const LocomotiveScroll = (await import('locomotive-scroll')).default;
         const locomotiveScroll = new LocomotiveScroll({
-          smooth: true,
+          smooth: !isMobile, // Only enable smooth scroll on desktop
           smartphone: {
-            smooth: false // Disable smooth scroll on mobile
+            smooth: false
           },
           tablet: {
-            smooth: false // Disable smooth scroll on tablet
+            smooth: false
           }
         });
 
@@ -35,28 +46,29 @@ export default function Home() {
           document.body.classList.remove('no-scroll');
           window.scrollTo(0, 0);
           
-          // Refresh LocomotiveScroll after content loads
+          // Refresh scroll after content loads
           setTimeout(() => {
             locomotiveScroll.update();
           }, 500);
-        }, 2000);
+        }, loadTime); // Use the dynamic timing
 
         return () => {
           locomotiveScroll.destroy();
+          window.removeEventListener('resize', checkMobile);
         };
       } catch (error) {
-        console.error('Error initializing LocomotiveScroll:', error);
+        console.error('Error initializing scroll:', error);
         setIsLoading(false);
         document.body.style.cursor = 'default';
         document.body.classList.remove('no-scroll');
       }
     })();
-  }, []);
+  }, [isMobile]);
 
   return (
     <main className={styles.main}>
       <AnimatePresence mode='wait'>
-        {isLoading && <Preloader />}
+        {isLoading && <Preloader duration={isMobile ? 2 : 3} />}
       </AnimatePresence>
       <Landing />
       <Description />
