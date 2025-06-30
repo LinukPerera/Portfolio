@@ -38,7 +38,7 @@ export default function Index() {
                             <Image 
                                 fill={true}
                                 alt={"Profile picture"}
-                                src={`/images/linukbackground.jpg`}
+                                src={`/images/linukbackground.png`}
                                 sizes="(max-width: 768px) 80px, 100px"
                             />
                         </div>
