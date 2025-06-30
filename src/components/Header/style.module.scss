@@ -1,100 +1,102 @@
-.header{
+.header {
     position: absolute;
     display: flex;
     z-index: 1;
     top: 0;
     color: white;
-    padding: 35px;
+    padding: 5vw; /* Reduced padding for mobile */
     justify-content: space-between;
     width: 100%;
     font-weight: 300;
     box-sizing: border-box;
     align-items: center;
-    
-    .logo{
+
+    .logo {
         display: flex;
         cursor: pointer;
-        p{
-            margin: 0px;
+        p {
+            margin: 0;
             transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+            font-size: 4vw; /* Scalable font size */
         }
-        .name{
+        .name {
             display: flex;
             position: relative;
             overflow: hidden;
             white-space: nowrap;
-            margin-left: 5px;
+            margin-left: 1vw;
             transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-            p{
+            p {
                 position: relative;
                 transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-                &:nth-of-type(2){
+                &:nth-of-type(2) {
                     padding-left: 0.3em;
                 }
-                &:nth-of-type(3){
+                &:nth-of-type(3) {
                     position: absolute;
-                    left: 120px;
+                    left: 20vw; /* Adjusted for mobile */
                     padding-left: 0.3em;
                 }
             }
         }
-        &:hover{
-            .copyright{
+        &:hover {
+            .copyright {
                 transform: rotate(360deg);
             }
-            .name{
-                padding-right: 30px;
-                .year{
+            .name {
+                padding-right: 6vw; /* Adjusted for mobile */
+                .year {
                     transform: translateX(-100%);
                 }
-                .linuk{
-                    transform: translateX(-110px);
+                .linuk {
+                    transform: translateX(-20vw); /* Adjusted for mobile */
                 }
-                .perera{
-                    transform: translateX(-110px);
+                .perera {
+                    transform: translateX(-20vw); /* Adjusted for mobile */
                 }
             }
         }
     }
 
-    .nav a {
-        color: white;  // Set text color to white
-        text-decoration: none;  // Remove underline
-        
-        // Optionally, you can add custom hover effects
-        &:hover {
-          color: white;  // Maintain the white color on hover
-          text-decoration: none;  // No underline on hover
-        }
-      
-        // Optional: Style for active link (when it's selected)
-        &.active {
-          color: purple;  // Set the active link color (you can change this to your preferred color)
-          text-decoration: none;
-        }
-      }
-
-    .nav{
+    .nav {
         display: flex;
         align-items: center;
 
-        .el{
+        a {
+            color: white;
+            text-decoration: none;
+            font-size: 3.5vw; /* Scalable font size */
+            padding: 2vw 3vw; /* Touch-friendly padding */
+            cursor: pointer;
+
+            &:hover {
+                color: white;
+                text-decoration: none;
+            }
+
+            &.active {
+                color: purple;
+                text-decoration: none;
+            }
+        }
+
+        .el {
             display: flex;
             flex-direction: column;
             position: relative;
             z-index: 1;
-            padding: 15px;
+            padding: 2vw;
             cursor: pointer;
-            &:hover{
-                .indicator{
+            &:hover {
+                .indicator {
                     transform: scale(1);
                 }
             }
-            .indicator{
+            .indicator {
                 position: absolute;
-                width: 5px;
-                height: 5px;
-                top: 45px;
+                width: 1vw; /* Scalable size */
+                height: 1vw;
+                top: 8vw; /* Adjusted for mobile */
                 left: 50%;
                 background-color: white;
                 border-radius: 50%;
@@ -102,22 +104,76 @@
                 transition: transform 0.2s cubic-bezier(0.76, 0, 0.24, 1);
             }
         }
-        a{
-            cursor: pointer;
+    }
+
+    /* Mobile-specific styles */
+    @media (max-width: 768px) {
+        flex-direction: row;
+        padding: 3vw;
+        .logo {
+            p {
+                font-size: 5vw; /* Slightly larger for readability */
+            }
+            .name {
+                margin-left: 0.5vw;
+                p {
+                    &:nth-of-type(3) {
+                        left: 25vw; /* Adjusted for smaller screens */
+                    }
+                }
+            }
         }
-    } 
+        .nav {
+            a {
+                font-size: 4vw;
+                padding: 2vw;
+            }
+            .el {
+                padding: 1.5vw;
+                .indicator {
+                    width: 1.2vw;
+                    height: 1.2vw;
+                    top: 7vw;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 2vw;
+        .logo {
+            p {
+                font-size: 6vw; /* Larger for small screens */
+            }
+        }
+        .nav {
+            a {
+                font-size: 5vw;
+                padding: 1.5vw;
+            }
+            .el {
+                padding: 1vw;
+                .indicator {
+                    width: 1.5vw;
+                    height: 1.5vw;
+                    top: 6vw;
+                }
+            }
+        }
+    }
 }
-.headerButtonContainer{
+
+.headerButtonContainer {
     transform: scale(0);
     position: fixed;
-    right: 0px;
+    right: 0;
     z-index: 4;
 
-    .button{
+    .button {
         position: relative;
-        margin: 20px;
-        width: 80px;
-        height: 80px;
+        margin: 3vw;
+        width: 15vw; /* Scalable size */
+        height: 15vw;
         border-radius: 50%;
         background-color: #1C1D20;
         cursor: pointer;
@@ -125,43 +181,74 @@
         align-items: center;
         justify-content: center;
     }
-    
-    .burger{
+
+    .burger {
         width: 100%;
         position: relative;
         z-index: 1;
-        &::after, &::before{
+        &::after,
+        &::before {
             content: "";
             display: block;
-            height: 1px;
+            height: 0.2vw; /* Scalable height */
             width: 40%;
             margin: auto;
             background-color: white;
             position: relative;
             transition: transform 0.3s;
         }
-    
-        &::after{
-            top: -5px;
+
+        &::after {
+            top: -1vw; /* Adjusted for mobile */
         }
-    
-        &::before{
-            top: 5px;
+
+        &::before {
+            top: 1vw;
         }
     }
-    
-    .burgerActive{
-    
-        &::after{
+
+    .burgerActive {
+        &::after {
             transform: rotate(45deg);
-            top: -1px;
+            top: -0.2vw;
         }
-    
-        &::before{
+
+        &::before {
             transform: rotate(-45deg);
-            top: 0px;
+            top: 0;
         }
-        
+    }
+
+    /* Mobile-specific styles */
+    @media (max-width: 768px) {
+        .button {
+            width: 12vw;
+            height: 12vw;
+            margin: 2vw;
+        }
+        .burger {
+            &::after {
+                top: -0.8vw;
+            }
+            &::before {
+                top: 0.8vw;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .button {
+            width: 10vw;
+            height: 10vw;
+            margin: 1.5vw;
+        }
+        .burger {
+            &::after {
+                top: -0.6vw;
+            }
+            &::before {
+                top: 0.6vw;
+            }
+        }
     }
 }
-
