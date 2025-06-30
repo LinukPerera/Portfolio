@@ -1,7 +1,7 @@
 'use client';
 import styles from './page.module.scss';
 import { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion'; // Added motion import
+import { AnimatePresence } from 'framer-motion';
 import Preloader from '../components/Preloader';
 import Landing from '../components/Landing';
 import Projects from '../components/Projects';
@@ -11,45 +11,45 @@ import Contact from '../components/Contact';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
+    // Lock scroll during loading
     document.body.classList.add('no-scroll');
-    
-    // Match this duration with your preloader's total animation time
-    const preloaderDuration = 2200; // 2.2 seconds
-    
-    const timer = setTimeout(() => {
-      setShowContent(true);
-      setTimeout(() => {
-        setIsLoading(false);
-        document.body.classList.remove('no-scroll');
-        window.scrollTo(0, 0);
-      }, 300); // Small buffer for exit animation
-    }, preloaderDuration);
 
-    return () => clearTimeout(timer);
+    // Total preloader animation time calculation:
+    // - Initial word delay: 1000ms
+    // - 7 word transitions @ 150ms each: 1050ms
+    // - Exit animation delay: 1700ms (to coordinate with landing page's 2.5s delay)
+    // - Exit animation duration: 800ms
+    const PRELOADER_TOTAL_TIME = 1000 + (7 * 150) + 1700 + 800; // ~4.55s total
+
+    const loadTimer = setTimeout(() => {
+      setIsLoading(false);
+      document.body.classList.remove('no-scroll');
+      window.scrollTo(0, 0);
+    }, PRELOADER_TOTAL_TIME);
+
+    return () => {
+      clearTimeout(loadTimer);
+      document.body.classList.remove('no-scroll');
+    };
   }, []);
 
   return (
     <main className={styles.main}>
       <AnimatePresence mode='wait'>
-        {isLoading && <Preloader />}
+        {isLoading ? (
+          <Preloader />
+        ) : (
+          <>
+            <Landing />
+            <Description />
+            <Projects />
+            <SlidingImages />
+            <Contact />
+          </>
+        )}
       </AnimatePresence>
-      
-      {showContent && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Landing />
-          <Description />
-          <Projects />
-          <SlidingImages />
-          <Contact />
-        </motion.div>
-      )}
     </main>
   );
 }
