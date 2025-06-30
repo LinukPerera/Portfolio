@@ -1,40 +1,46 @@
 .footer {
     display: flex;
-    flex-direction: column;
     width: 100%;
     font-size: 12px;
-    gap: 15px;
-    margin-top: 40px;
+    gap: 8px; // Reduced gap for mobile
+    margin-top: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    flex-wrap: wrap; // Allows wrapping if needed
+    justify-content: center; // Center items on mobile
 
     @media (min-width: 768px) {
-        flex-direction: row;
         justify-content: space-between;
         gap: 40px;
         margin-top: 0;
+        padding: 0;
+        flex-wrap: nowrap;
     }
 }
 
 .a {
     text-decoration: none;
     color: white;
-    padding: 8px 15px;
+    padding: 6px 10px; // Reduced padding for mobile
     border-radius: 5px;
     display: inline-block;
     text-align: center;
-    position: relative; /* For positioning the underline */
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions for color and scale */
+    position: relative;
+    white-space: nowrap; // Prevents text wrapping
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 11px; // Slightly smaller font for mobile
     
     @media (min-width: 768px) {
         padding: 10px 20px;
         text-align: left;
+        font-size: 12px;
     }
 
-    /* Underline effect */
     &::after {
         content: "";
         position: absolute;
         width: 0;
-        height: 1px; /* Thinner underline for smaller text */
+        height: 1px;
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
@@ -42,13 +48,12 @@
         transition: width 0.3s ease;
     }
 
-    /* Hover effects */
     &:hover {
-        color: rgb(200, 200, 200); /* Lighter color on hover */
-        transform: scale(1.03); /* Subtle scale increase for smaller text */
+        color: rgb(200, 200, 200);
+        transform: scale(1.03);
         
         &::after {
-            width: 60%; /* Underline grows to 60% of the text width */
+            width: 60%;
         }
     }
 }
