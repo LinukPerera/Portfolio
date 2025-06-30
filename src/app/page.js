@@ -23,7 +23,7 @@ export default function Home() {
     // - Curve animation duration: 700ms
     // - slideUp exit delay: 200ms
     // - slideUp exit duration: 800ms
-    const TOTAL_ANIMATION_TIME = 1200 + 2100 + 300 + 700;
+    const TOTAL_ANIMATION_TIME = 1200 + 1050 + 300 + 700;
 
     const timer = setTimeout(() => {
       setIsLoading(false);
