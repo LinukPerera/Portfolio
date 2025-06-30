@@ -17,14 +17,3 @@ export const slideUp = {
         transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0 } // Increased duration
     }
 }
-
-// Add this new animation for the preloader
-export const preloaderAnim = {
-    initial: {
-        opacity: 1
-    },
-    exit: {
-        opacity: 0,
-        transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 1 } // Matches with slideUp
-    }
-}
