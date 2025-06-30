@@ -4,7 +4,7 @@
     z-index: 1;
     top: 0;
     color: white;
-    padding: 5vw; /* Scaled down from 35px to 5vw for mobile */
+    padding: 6vw; /* Increased padding for better spacing */
     justify-content: space-between;
     width: 100%;
     font-weight: 300;
@@ -14,10 +14,11 @@
     .logo {
         display: flex;
         cursor: pointer;
+        gap: 2vw; /* Added gap for better element separation */
 
         p {
             margin: 0;
-            font-size: 4vw; /* Scaled font size for mobile */
+            font-size: 4.5vw; /* Slightly larger font for clarity */
             transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
         }
 
@@ -26,22 +27,22 @@
             position: relative;
             overflow: hidden;
             white-space: nowrap;
-            margin-left: 1vw; /* Scaled from 5px */
+            margin-left: 2vw; /* Increased for spacing */
             transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
 
             p {
                 position: relative;
                 transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-                font-size: 4vw; /* Consistent font scaling */
+                font-size: 4.5vw;
 
                 &:nth-of-type(2) {
-                    padding-left: 0.1em; /* Adjusted for mobile */
+                    padding-left: 0.2em;
                 }
 
                 &:nth-of-type(3) {
                     position: absolute;
-                    left: 20vw; /* Scaled from 120px */
-                    padding-left: 0.1em;
+                    left: 25vw; /* Adjusted to prevent overlap */
+                    padding-left: 0.2em;
                 }
             }
         }
@@ -52,17 +53,17 @@
             }
 
             .name {
-                padding-right: 5vw; /* Scaled from 30px */
+                padding-right: 6vw; /* Increased for better spacing */
                 .year {
                     transform: translateX(-100%);
                 }
 
                 .linuk {
-                    transform: translateX(-18vw); /* Scaled from -110px */
+                    transform: translateX(-20vw); /* Adjusted to avoid clutter */
                 }
 
                 .perera {
-                    transform: translateX(-18vw); /* Scaled from -110px */
+                    transform: translateX(-20vw);
                 }
             }
         }
@@ -71,11 +72,12 @@
     .nav {
         display: flex;
         align-items: center;
+        gap: 4vw; /* Added gap to space out nav items */
 
         a {
             color: white;
             text-decoration: none;
-            font-size: 3.5vw; /* Scaled for mobile readability */
+            font-size: 4vw; /* Slightly larger for readability */
 
             &:hover {
                 color: white;
@@ -93,7 +95,7 @@
             flex-direction: column;
             position: relative;
             z-index: 1;
-            padding: 2vw; /* Scaled from 15px */
+            padding: 3vw; /* Increased padding for touch targets */
             cursor: pointer;
 
             &:hover {
@@ -104,9 +106,9 @@
 
             .indicator {
                 position: absolute;
-                width: 1vw; /* Scaled from 5px */
-                height: 1vw;
-                top: 8vw; /* Scaled from 45px */
+                width: 1.2vw;
+                height: 1.2vw;
+                top: 9vw; /* Adjusted to align with larger padding */
                 left: 50%;
                 background-color: white;
                 border-radius: 50%;
@@ -120,14 +122,14 @@
 .headerButtonContainer {
     transform: scale(0);
     position: fixed;
-    right: 0;
+    right: 2vw; /* Added margin for better positioning */
     z-index: 4;
 
     .button {
         position: relative;
-        margin: 3vw; /* Scaled from 20px */
-        width: 15vw; /* Scaled from 80px */
-        height: 15vw;
+        margin: 4vw; /* Increased margin */
+        width: 12vw; /* Slightly smaller for mobile */
+        height: 12vw;
         border-radius: 50%;
         background-color: #1C1D20;
         cursor: pointer;
@@ -145,8 +147,8 @@
         &::before {
             content: "";
             display: block;
-            height: 0.2vw; /* Scaled from 1px */
-            width: 40%;
+            height: 0.3vw; /* Slightly thicker for visibility */
+            width: 50%; /* Wider for better appearance */
             margin: auto;
             background-color: white;
             position: relative;
@@ -154,18 +156,18 @@
         }
 
         &::after {
-            top: -1vw; /* Scaled from -5px */
+            top: -1.5vw; /* Increased spacing */
         }
 
         &::before {
-            top: 1vw; /* Scaled from 5px */
+            top: 1.5vw;
         }
     }
 
     .burgerActive {
         &::after {
             transform: rotate(45deg);
-            top: -0.2vw; /* Scaled from -1px */
+            top: -0.3vw;
         }
 
         &::before {
@@ -178,73 +180,81 @@
 /* Media query for extra small screens (e.g., phones below 360px) */
 @media screen and (max-width: 360px) {
     .header {
-        padding: 4vw;
+        padding: 5vw;
+        flex-wrap: wrap; /* Allow wrapping to prevent clutter */
+        gap: 3vw;
 
         .logo {
+            gap: 1.5vw;
+
             p {
-                font-size: 3.5vw;
+                font-size: 4vw;
             }
 
             .name {
-                margin-left: 0.8vw;
+                margin-left: 1.5vw;
 
                 p {
-                    font-size: 3.5vw;
+                    font-size: 4vw;
 
                     &:nth-of-type(3) {
-                        left: 18vw;
+                        left: 22vw;
                     }
                 }
             }
 
             &:hover {
                 .name {
-                    padding-right: 4vw;
+                    padding-right: 5vw;
                     .linuk,
                     .perera {
-                        transform: translateX(-16vw);
+                        transform: translateX(-18vw);
                     }
                 }
             }
         }
 
         .nav {
+            gap: 3vw;
+
             a {
-                font-size: 3vw;
+                font-size: 3.5vw;
             }
 
             .el {
-                padding: 1.5vw;
+                padding: 2vw;
 
                 .indicator {
-                    width: 0.8vw;
-                    height: 0.8vw;
-                    top: 7vw;
+                    width: 1vw;
+                    height: 1vw;
+                    top: 8vw;
                 }
             }
         }
     }
 
     .headerButtonContainer {
+        right: 1.5vw;
+
         .button {
-            margin: 2.5vw;
-            width: 12vw;
-            height: 12vw;
+            margin: 3vw;
+            width: 10vw;
+            height: 10vw;
         }
 
         .burger {
             &::after {
-                top: -0.8vw;
+                top: -1.2vw;
             }
 
             &::before {
-                top: 0.8vw;
+                top: 1.2vw;
             }
         }
 
         .burgerActive {
             &::after {
-                top: -0.15vw;
+                top: -0.2vw;
             }
         }
     }
