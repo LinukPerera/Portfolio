@@ -1,3 +1,4 @@
+// app/page.js
 'use client';
 import styles from './page.module.scss';
 import { useState, useEffect } from 'react';
@@ -13,24 +14,25 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Lock scroll during loading
     document.body.classList.add('no-scroll');
 
-    // Calculate total preloader time:
+    // Total animation time calculation:
     // - Initial word delay: 1000ms
-    // - 7 word transitions @ 150ms each: 1050ms
-    // - Exit animation delay: 200ms (from anim.js)
-    // - Exit animation duration: 800ms (from anim.js)
-    const PRELOADER_TOTAL_TIME = 1000 + (7 * 150) + 200 + 800; // 3.05s total
+    // - 7 word transitions @ 150ms: 1050ms
+    // - Curve animation delay: 300ms
+    // - Curve animation duration: 700ms
+    // - slideUp exit delay: 200ms
+    // - slideUp exit duration: 800ms
+    const TOTAL_ANIMATION_TIME = 1000 + 1050 + 300 + 700;
 
-    const loadTimer = setTimeout(() => {
+    const timer = setTimeout(() => {
       setIsLoading(false);
       document.body.classList.remove('no-scroll');
       window.scrollTo(0, 0);
-    }, PRELOADER_TOTAL_TIME);
+    }, TOTAL_ANIMATION_TIME);
 
     return () => {
-      clearTimeout(loadTimer);
+      clearTimeout(timer);
       document.body.classList.remove('no-scroll');
     };
   }, []);
@@ -38,18 +40,18 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <AnimatePresence mode='wait'>
-        {isLoading ? (
-          <Preloader />
-        ) : (
-          <>
-            <Landing />
-            <Description />
-            <Projects />
-            <SlidingImages />
-            <Contact />
-          </>
-        )}
+        {isLoading && <Preloader />}
       </AnimatePresence>
+      
+      {!isLoading && (
+        <>
+          <Landing />
+          <Description />
+          <Projects />
+          <SlidingImages />
+          <Contact />
+        </>
+      )}
     </main>
   );
 }
