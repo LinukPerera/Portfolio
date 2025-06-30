@@ -4,26 +4,28 @@
     z-index: 1;
     top: 0;
     color: white;
-    padding: 20px; // Reduced padding for mobile
+    padding: 20px;
     justify-content: space-between;
     width: 100%;
     font-weight: 300;
     box-sizing: border-box;
     align-items: center;
+    flex-wrap: nowrap; // Prevent wrapping
     
     @media (max-width: 768px) {
-        flex-direction: column; // Stack items vertically on mobile
-        align-items: flex-start; // Align items to the left
-        padding: 15px; // Smaller padding for mobile
+        padding: 15px;
+        // Keep flex-direction row for mobile
+        overflow: hidden; // Prevent overflow issues
     }
     
     .logo{
         display: flex;
         cursor: pointer;
+        flex-shrink: 0; // Prevent logo from shrinking
         p{
             margin: 0px;
             transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-            font-size: 12px; // Smaller font for mobile
+            font-size: clamp(12px, 3vw, 16px); // Responsive font size with minimum and maximum
         }
         .name{
             display: flex;
@@ -33,10 +35,6 @@
             margin-left: 5px;
             transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
             
-            @media (max-width: 768px) {
-                margin-left: 0;
-            }
-            
             p{
                 position: relative;
                 transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
@@ -45,12 +43,8 @@
                 }
                 &:nth-of-type(3){
                     position: absolute;
-                    left: 90px; // Adjusted for mobile
+                    left: clamp(90px, 25vw, 120px); // Responsive positioning
                     padding-left: 0.3em;
-                    
-                    @media (max-width: 480px) {
-                        left: 70px; // Further adjustment for very small screens
-                    }
                 }
             }
         }
@@ -64,10 +58,10 @@
                     transform: translateX(-100%);
                 }
                 .linuk{
-                    transform: translateX(-90px); // Adjusted for mobile
+                    transform: translateX(clamp(-90px, -25vw, -110px)); // Responsive transform
                 }
                 .perera{
-                    transform: translateX(-90px); // Adjusted for mobile
+                    transform: translateX(clamp(-90px, -25vw, -110px)); // Responsive transform
                 }
             }
         }
@@ -76,7 +70,7 @@
     .nav a {
         color: white;
         text-decoration: none;
-        font-size: 12px; // Smaller font for mobile
+        font-size: clamp(12px, 3vw, 16px); // Responsive font size
         
         &:hover {
           color: white;
@@ -92,17 +86,11 @@
     .nav{
         display: flex;
         align-items: center;
+        flex-shrink: 1; // Allow nav to shrink if needed
+        min-width: 0; // Allow text truncation
         
         @media (max-width: 768px) {
-            margin-top: 15px; // Add space between logo and nav on mobile
-            flex-wrap: wrap; // Allow items to wrap on small screens
-            justify-content: flex-start; // Align nav items to left
-        }
-        
-        @media (max-width: 480px) {
-            .el {
-                padding: 10px 8px; // Smaller padding for very small screens
-            }
+            gap: 8px; // Use gap instead of padding for better space management
         }
 
         .el{
@@ -110,12 +98,9 @@
             flex-direction: column;
             position: relative;
             z-index: 1;
-            padding: 15px;
+            padding: 0 clamp(8px, 2vw, 15px); // Responsive padding
             cursor: pointer;
-            
-            @media (max-width: 768px) {
-                padding: 10px; // Smaller padding for mobile
-            }
+            white-space: nowrap; // Prevent text wrapping
             
             &:hover{
                 .indicator{
@@ -126,16 +111,12 @@
                 position: absolute;
                 width: 5px;
                 height: 5px;
-                top: 35px; // Adjusted for mobile
+                top: clamp(25px, 7vw, 45px); // Responsive positioning
                 left: 50%;
                 background-color: white;
                 border-radius: 50%;
                 transform: scale(0) translateX(-50%);
                 transition: transform 0.2s cubic-bezier(0.76, 0, 0.24, 1);
-                
-                @media (max-width: 768px) {
-                    top: 30px; // Adjusted for mobile
-                }
             }
         }
         a{
@@ -152,9 +133,9 @@
     
     @media (max-width: 768px) {
         .button {
-            width: 60px; // Smaller button for mobile
-            height: 60px; // Smaller button for mobile
-            margin: 15px; // Smaller margin for mobile
+            width: clamp(50px, 12vw, 80px); // Responsive button size
+            height: clamp(50px, 12vw, 80px);
+            margin: clamp(10px, 3vw, 20px);
         }
     }
 
