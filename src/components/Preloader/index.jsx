@@ -36,8 +36,17 @@ export default function Index() {
     }
 
     return (
-        <motion.div variants={slideUp} initial="initial" exit="exit" className={styles.introduction}>
-            {dimension.width > 0 && 
+    return (
+        <motion.div 
+            variants={slideUp}
+            initial="initial"
+            exit="exit"
+            className={styles.introduction}
+            onAnimationComplete={() => {
+                // This ensures we don't unmount too early
+            }}
+        >
+        
             <>
                 <motion.p variants={opacity} initial="initial" animate="enter"><span></span>{words[index]}</motion.p>
                 <svg>
