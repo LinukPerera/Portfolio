@@ -16,12 +16,12 @@ export default function Home() {
     // Lock scroll during loading
     document.body.classList.add('no-scroll');
 
-    // Total preloader animation time calculation:
+    // Calculate total preloader time:
     // - Initial word delay: 1000ms
     // - 7 word transitions @ 150ms each: 1050ms
-    // - Exit animation delay: 1700ms (to coordinate with landing page's 2.5s delay)
-    // - Exit animation duration: 800ms
-    const PRELOADER_TOTAL_TIME = 1000 + (7 * 150) + 1700 + 800; // ~4.55s total
+    // - Exit animation delay: 200ms (from anim.js)
+    // - Exit animation duration: 800ms (from anim.js)
+    const PRELOADER_TOTAL_TIME = 1000 + (7 * 150) + 200 + 800; // 3.05s total
 
     const loadTimer = setTimeout(() => {
       setIsLoading(false);
