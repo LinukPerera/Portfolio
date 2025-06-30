@@ -21,63 +21,37 @@ export default function Home() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
 
-    // Set loading class
+    // Set loading state
     document.body.classList.add('no-scroll');
-    
+
     // Different timing for mobile vs desktop
-    const loadTime = isMobile ? 2000 : 3000; // Longer duration for PC
+    const loadTime = isMobile ? 2000 : 3500; // 3.5s for PC, 2s for mobile
 
-    (async () => {
-      try {
-        const LocomotiveScroll = (await import('locomotive-scroll')).default;
-        const locomotiveScroll = new LocomotiveScroll({
-          smooth: !isMobile, // Only enable smooth scroll on desktop
-          smartphone: {
-            smooth: false
-          },
-          tablet: {
-            smooth: false
-          }
-        });
+    const loadTimer = setTimeout(() => {
+      setIsLoading(false);
+      document.body.style.cursor = 'default';
+      document.body.classList.remove('no-scroll');
+      window.scrollTo(0, 0);
+    }, loadTime);
 
-        setTimeout(() => {
-          setIsLoading(false);
-          document.body.style.cursor = 'default';
-          document.body.classList.remove('no-scroll');
-          window.scrollTo(0, 0);
-          
-          // Refresh scroll after content loads
-          setTimeout(() => {
-            locomotiveScroll.update();
-          }, 500);
-        }, loadTime); // Use the dynamic timing
-
-        return () => {
-          locomotiveScroll.destroy();
-          window.removeEventListener('resize', checkMobile);
-        };
-      } catch (error) {
-        console.error('Error initializing scroll:', error);
-        setIsLoading(false);
-        document.body.style.cursor = 'default';
-        document.body.classList.remove('no-scroll');
-      }
-    })();
+    return () => {
+      clearTimeout(loadTimer);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, [isMobile]);
 
   return (
-   
     <main className={styles.main}>
       <AnimatePresence mode='wait'>
-        {isLoading && (<Preloader onComplete={() => setIsLoading(false)}/>)}
+        {isLoading && <Preloader />}
       </AnimatePresence>
       {!isLoading && (
-          <>
-              <Landing />
-              <Description />
-              <Projects />
-              <SlidingImages />
-              <Contact />
+        <>
+          <Landing />
+          <Description />
+          <Projects />
+          <SlidingImages />
+          <Contact />
         </>
       )}
     </main>
