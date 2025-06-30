@@ -1,6 +1,10 @@
-
-body{
-    margin: 0px;
-    overflow: hidden; /* Hide scrollbars */
+body {
+    margin: 0;
+    padding: 0;
     cursor: wait;
+}
+
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
 }
