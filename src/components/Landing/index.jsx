@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const firstText = useRef(null);
   const secondText = useRef(null);
   const slider = useRef(null);
@@ -21,6 +22,7 @@ export default function Home() {
   });
 
   useEffect(() => {
+    setIsMounted(true);
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -50,6 +52,8 @@ export default function Home() {
   const setupAnimations = () => {
     resetAnimations();
     
+    if (!isMounted) return;
+    
     gsap.registerPlugin(ScrollTrigger);
     
     // Reset positions
@@ -70,7 +74,6 @@ export default function Home() {
           animationRefs.current.direction = e.direction * -1;
         },
         onRefresh: () => {
-          // Reset positions when scroller refreshes
           gsap.set([firstText.current, secondText.current], { 
             xPercent: animationRefs.current.xPercent,
             overwrite: true
@@ -90,7 +93,6 @@ export default function Home() {
         newXPercent = -100;
       }
       
-      // Apply the same xPercent to both text elements
       gsap.set([firstText.current, secondText.current], { 
         xPercent: newXPercent,
         overwrite: true
@@ -104,13 +106,15 @@ export default function Home() {
   };
 
   useLayoutEffect(() => {
+    if (!isMounted) return;
     setupAnimations();
+    window.scrollTo(0, 0);
     return resetAnimations;
-  }, [isMobile]);
+  }, [isMobile, isMounted]);
 
-  // Reset when component becomes visible again
   useEffect(() => {
-  if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+    if (!isMounted || typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -128,13 +132,14 @@ export default function Home() {
         observer.unobserve(sliderContainer.current);
       }
     };
-  }
-}, []);
+  }, [isMounted]);
+
+  if (!isMounted) return null;
 
   return (
     <motion.main variants={slideUp} initial="initial" animate="enter" className={styles.landing}>
       <Image 
-        src="/images/linukbackground.png"
+        src="/images/linukbackground.jpg"
         fill={true}
         alt="background"
         priority
