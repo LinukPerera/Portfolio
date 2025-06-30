@@ -1,48 +1,40 @@
 'use client';
-import styles from './page.module.scss'
-import { useEffect, useState } from 'react'
+import styles from './page.module.scss';
+import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Preloader from '../components/Preloader';
 import Landing from '../components/Landing';
-import Projects from '../components/Projects';
-import Description from '../components/Description';
-import SlidingImages from '../components/SlidingImages';
-import Contact from '../components/Contact';
-import { pageAppear } from '../components/Preloader/anim';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
     document.body.classList.add('no-scroll');
+    
+    // Total preloader duration matches animation timing
     const timer = setTimeout(() => {
-      setIsLoading(false);
-      document.body.classList.remove('no-scroll');
-    }, 2500); // Slightly longer than animation duration
+      setShowContent(true);
+      setTimeout(() => {
+        setIsLoading(false);
+        document.body.classList.remove('no-scroll');
+      }, 300); // Small buffer for exit animation
+    }, 2200); // Matches preloader animation duration
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <main className={styles.main}>
-      <AnimatePresence mode='sync'> {/* Changed to sync mode */}
+      <AnimatePresence mode='wait'>
         {isLoading ? (
-          <Preloader key="preloader" />
-        ) : (
-          <motion.div
-            key="content"
-            variants={pageAppear}
-            initial="initial"
-            animate="enter"
-          >
-            <Landing />
-            <Description />
-            <Projects />
-            <SlidingImages />
-            <Contact />
-          </motion.div>
-        )}
+          <Preloader />
+        ) : null}
       </AnimatePresence>
+      
+      {showContent && (
+        <Landing />
+      )}
     </main>
   );
 }
