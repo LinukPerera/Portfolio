@@ -4,7 +4,7 @@
     z-index: 1;
     top: 0;
     color: white;
-    padding: 5vw; /* Reduced padding for mobile */
+    padding: 5vw; /* Scaled down from 35px to 5vw for mobile */
     justify-content: space-between;
     width: 100%;
     font-weight: 300;
@@ -14,45 +14,55 @@
     .logo {
         display: flex;
         cursor: pointer;
+
         p {
             margin: 0;
+            font-size: 4vw; /* Scaled font size for mobile */
             transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-            font-size: 4vw; /* Scalable font size */
         }
+
         .name {
             display: flex;
             position: relative;
             overflow: hidden;
             white-space: nowrap;
-            margin-left: 1vw;
+            margin-left: 1vw; /* Scaled from 5px */
             transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+
             p {
                 position: relative;
                 transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+                font-size: 4vw; /* Consistent font scaling */
+
                 &:nth-of-type(2) {
-                    padding-left: 0.3em;
+                    padding-left: 0.1em; /* Adjusted for mobile */
                 }
+
                 &:nth-of-type(3) {
                     position: absolute;
-                    left: 20vw; /* Adjusted for mobile */
-                    padding-left: 0.3em;
+                    left: 20vw; /* Scaled from 120px */
+                    padding-left: 0.1em;
                 }
             }
         }
+
         &:hover {
             .copyright {
                 transform: rotate(360deg);
             }
+
             .name {
-                padding-right: 6vw; /* Adjusted for mobile */
+                padding-right: 5vw; /* Scaled from 30px */
                 .year {
                     transform: translateX(-100%);
                 }
+
                 .linuk {
-                    transform: translateX(-20vw); /* Adjusted for mobile */
+                    transform: translateX(-18vw); /* Scaled from -110px */
                 }
+
                 .perera {
-                    transform: translateX(-20vw); /* Adjusted for mobile */
+                    transform: translateX(-18vw); /* Scaled from -110px */
                 }
             }
         }
@@ -65,9 +75,7 @@
         a {
             color: white;
             text-decoration: none;
-            font-size: 3.5vw; /* Scalable font size */
-            padding: 2vw 3vw; /* Touch-friendly padding */
-            cursor: pointer;
+            font-size: 3.5vw; /* Scaled for mobile readability */
 
             &:hover {
                 color: white;
@@ -85,79 +93,25 @@
             flex-direction: column;
             position: relative;
             z-index: 1;
-            padding: 2vw;
+            padding: 2vw; /* Scaled from 15px */
             cursor: pointer;
+
             &:hover {
                 .indicator {
                     transform: scale(1);
                 }
             }
+
             .indicator {
                 position: absolute;
-                width: 1vw; /* Scalable size */
+                width: 1vw; /* Scaled from 5px */
                 height: 1vw;
-                top: 8vw; /* Adjusted for mobile */
+                top: 8vw; /* Scaled from 45px */
                 left: 50%;
                 background-color: white;
                 border-radius: 50%;
                 transform: scale(0) translateX(-50%);
                 transition: transform 0.2s cubic-bezier(0.76, 0, 0.24, 1);
-            }
-        }
-    }
-
-    /* Mobile-specific styles */
-    @media (max-width: 768px) {
-        flex-direction: row;
-        padding: 3vw;
-        .logo {
-            p {
-                font-size: 5vw; /* Slightly larger for readability */
-            }
-            .name {
-                margin-left: 0.5vw;
-                p {
-                    &:nth-of-type(3) {
-                        left: 25vw; /* Adjusted for smaller screens */
-                    }
-                }
-            }
-        }
-        .nav {
-            a {
-                font-size: 4vw;
-                padding: 2vw;
-            }
-            .el {
-                padding: 1.5vw;
-                .indicator {
-                    width: 1.2vw;
-                    height: 1.2vw;
-                    top: 7vw;
-                }
-            }
-        }
-    }
-
-    @media (max-width: 480px) {
-        padding: 2vw;
-        .logo {
-            p {
-                font-size: 6vw; /* Larger for small screens */
-            }
-        }
-        .nav {
-            a {
-                font-size: 5vw;
-                padding: 1.5vw;
-            }
-            .el {
-                padding: 1vw;
-                .indicator {
-                    width: 1.5vw;
-                    height: 1.5vw;
-                    top: 6vw;
-                }
             }
         }
     }
@@ -171,8 +125,8 @@
 
     .button {
         position: relative;
-        margin: 3vw;
-        width: 15vw; /* Scalable size */
+        margin: 3vw; /* Scaled from 20px */
+        width: 15vw; /* Scaled from 80px */
         height: 15vw;
         border-radius: 50%;
         background-color: #1C1D20;
@@ -186,11 +140,12 @@
         width: 100%;
         position: relative;
         z-index: 1;
+
         &::after,
         &::before {
             content: "";
             display: block;
-            height: 0.2vw; /* Scalable height */
+            height: 0.2vw; /* Scaled from 1px */
             width: 40%;
             margin: auto;
             background-color: white;
@@ -199,18 +154,18 @@
         }
 
         &::after {
-            top: -1vw; /* Adjusted for mobile */
+            top: -1vw; /* Scaled from -5px */
         }
 
         &::before {
-            top: 1vw;
+            top: 1vw; /* Scaled from 5px */
         }
     }
 
     .burgerActive {
         &::after {
             transform: rotate(45deg);
-            top: -0.2vw;
+            top: -0.2vw; /* Scaled from -1px */
         }
 
         &::before {
@@ -218,36 +173,78 @@
             top: 0;
         }
     }
+}
 
-    /* Mobile-specific styles */
-    @media (max-width: 768px) {
-        .button {
-            width: 12vw;
-            height: 12vw;
-            margin: 2vw;
-        }
-        .burger {
-            &::after {
-                top: -0.8vw;
+/* Media query for extra small screens (e.g., phones below 360px) */
+@media screen and (max-width: 360px) {
+    .header {
+        padding: 4vw;
+
+        .logo {
+            p {
+                font-size: 3.5vw;
             }
-            &::before {
-                top: 0.8vw;
+
+            .name {
+                margin-left: 0.8vw;
+
+                p {
+                    font-size: 3.5vw;
+
+                    &:nth-of-type(3) {
+                        left: 18vw;
+                    }
+                }
+            }
+
+            &:hover {
+                .name {
+                    padding-right: 4vw;
+                    .linuk,
+                    .perera {
+                        transform: translateX(-16vw);
+                    }
+                }
+            }
+        }
+
+        .nav {
+            a {
+                font-size: 3vw;
+            }
+
+            .el {
+                padding: 1.5vw;
+
+                .indicator {
+                    width: 0.8vw;
+                    height: 0.8vw;
+                    top: 7vw;
+                }
             }
         }
     }
 
-    @media (max-width: 480px) {
+    .headerButtonContainer {
         .button {
-            width: 10vw;
-            height: 10vw;
-            margin: 1.5vw;
+            margin: 2.5vw;
+            width: 12vw;
+            height: 12vw;
         }
+
         .burger {
             &::after {
-                top: -0.6vw;
+                top: -0.8vw;
             }
+
             &::before {
-                top: 0.6vw;
+                top: 0.8vw;
+            }
+        }
+
+        .burgerActive {
+            &::after {
+                top: -0.15vw;
             }
         }
     }
