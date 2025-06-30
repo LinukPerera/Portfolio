@@ -25,10 +25,10 @@ export default function Index() {
         offset: ["start end", "end end"]
     });
 
-    const x = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 50 : 100]);
-    const y = useTransform(scrollYProgress, [0, 1], [isMobile ? -200 : -500, 0]);
-    const rotate = useTransform(scrollYProgress, [0, 1], [isMobile ? 90 : 120, 90]);
-
+    const x = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 30 : 100]);
+    const y = useTransform(scrollYProgress, [0, 1], [isMobile ? -100 : -500, 0]);
+    const rotate = useTransform(scrollYProgress, [0, 1], [isMobile ? 60 : 120, 90]);
+    
     return (
         <motion.div style={{y}} ref={container} className={styles.contact}>
             <div className={styles.body}>
