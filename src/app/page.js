@@ -66,15 +66,20 @@ export default function Home() {
   }, [isMobile]);
 
   return (
+   
     <main className={styles.main}>
       <AnimatePresence mode='wait'>
-        {isLoading && <Preloader duration={isMobile ? 2 : 3} />}
+        {isLoading && (<Preloader onComplete={() => setIsLoading(false)}/>)}
       </AnimatePresence>
-      <Landing />
-      <Description />
-      <Projects />
-      <SlidingImages />
-      <Contact />
+      {!isLoading && (
+          <>
+              <Landing />
+              <Description />
+              <Projects />
+              <SlidingImages />
+              <Contact />
+        </>
+      )}
     </main>
   )
 }
