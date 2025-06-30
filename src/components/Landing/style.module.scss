@@ -1,18 +1,24 @@
 .landing {
   position: relative;
   display: flex;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh; // Changed from height to min-height
+  height: auto; // Allow content to expand
+  overflow: visible; // Changed from hidden to visible
 
   img {
     object-fit: cover;
+    position: fixed; // Make background fixed
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
   }
   
   .sliderContainer {
     position: absolute;
     top: calc(100vh - 250px);
     width: 100%;
-    overflow: hidden;
     
     @media (min-width: 768px) {
       top: calc(100vh - 350px);
