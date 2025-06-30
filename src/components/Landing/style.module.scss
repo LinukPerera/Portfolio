@@ -17,8 +17,10 @@
   
   .sliderContainer {
     position: absolute;
-    top: calc(100vh - 250px);
     width: 100%;
+    
+    // Mobile position
+    top: calc(100vh - 200px); // Moved up slightly
     
     @media (min-width: 768px) {
       top: calc(100vh - 350px);
@@ -56,32 +58,45 @@
 
   .description {
     position: absolute;
-    top: 25%;
-    left: 10%;
     color: white;
-    font-size: 16px;
     font-weight: 300;
-    width: 80%;
     
+    // Mobile styles
+    left: 10%;
+    top: 15%; // Moved higher up
+    width: 80%;
+    font-size: 16px;
+    
+    // Align items to the left
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    svg {
+      transform: scale(1.5);
+      margin-bottom: 20px; // Reduced space between SVG and text
+    }
+    
+    p {
+      margin: 5px 0; // Tighter spacing between paragraphs
+      text-align: left;
+    }
+  
+    // PC styles (unchanged)
     @media (min-width: 768px) {
       top: 35%;
       left: 65%;
       font-size: 24px;
       width: auto;
-    }
-    
-    p {
-      margin: 0;
-      margin-bottom: 10px;
-    }
-    
-    svg {
-      transform: scale(1.5);
-      margin-bottom: 50px;
       
-      @media (min-width: 768px) {
+      svg {
         transform: scale(2);
         margin-bottom: 100px;
+      }
+      
+      p {
+        margin: 0;
+        margin-bottom: 10px;
       }
     }
   }
