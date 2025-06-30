@@ -134,7 +134,7 @@ export default function Home() {
   return (
     <motion.main variants={slideUp} initial="initial" animate="enter" className={styles.landing}>
       <Image 
-        src="/images/linukbackground.jpg"
+        src="/images/linukbackground.png"
         fill={true}
         alt="background"
         priority
