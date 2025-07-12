@@ -45,13 +45,6 @@ export default function Index() {
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                 >
-                    <Rounded className={`${styles.button} ${!isHovered ? styles.notHovered : ''}`}>
-                        <a href="https://github.com/LinukPerera" target="_blank" rel="noopener noreferrer">
-                          <Rounded>
-                            <p>More work</p>
-                          </Rounded>
-                        </a>
-                    </Rounded>
                     <a href="https://github.com/LinukPerera" target="_blank" rel="noopener noreferrer" className={styles.a} >
                       <Rounded>
                         <p>About</p>
