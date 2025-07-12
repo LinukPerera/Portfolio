@@ -45,13 +45,21 @@ export default function Index() {
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                 >
-                    <a href="https://www.linkedin.com/in/linukperera" target="_blank" rel="noopener noreferrer" className={styles.link}>
-                        <Rounded className={`${styles.button} ${!isHovered ? styles.notHovered : ''}`}>
-                            // <a href="https://www.linkedin.com/in/linukperera" target="_blank" rel="noopener noreferrer" className={styles.link}>
+                    <Rounded className={`${styles.button} ${!isHovered ? styles.notHovered : ''}`}>
+                        <Link
+                            href="https://www.linkedin.com/in/linukperera"
+                            passHref
+                            legacyBehavior
+                        >
+                            <a 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.link}
+                            >
                                 LinkedIn
-                            // </a>
-                        </Rounded>
-                    </a>
+                            </a>
+                        </Link>
+                    </Rounded>
                 </div>
             </div>
         </div>
