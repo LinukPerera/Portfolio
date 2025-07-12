@@ -188,46 +188,51 @@
 
         .info {
             display: flex;
-            flex-direction: column;
-            gap: 30px;
-            justify-content: space-between;
+            flex-direction: row; // Changed from column to row for mobile
+            flex-wrap: wrap; // Allow items to wrap to next line if needed
+            gap: 15px; // Reduced gap for mobile
+            justify-content: flex-start; // Align items to the start
             margin-top: 60px;
             padding: 15px;
-
+        
             @media (min-width: 768px) {
-                flex-direction: row;
                 gap: 0;
                 margin-top: 200px;
                 padding: 20px;
+                justify-content: space-between;
             }
         
             div {
                 display: flex;
-                flex-direction: column;
-                gap: 15px;
+                flex-direction: row; // Changed from column to row for mobile
+                flex-wrap: wrap; // Allow items to wrap
+                gap: 10px; // Reduced gap for mobile
         
                 @media (min-width: 768px) {
-                    flex-direction: row;
                     gap: 10px;
                 }
-
+        
                 span {
                     display: flex;
                     flex-direction: column;
                     gap: 3px;
+                    margin-right: 15px; // Add spacing between inline items
         
                     @media (min-width: 768px) {
                         gap: 15px;
+                        margin-right: 0;
                     }
-
+        
                     // Social links container
                     &:has(h3:contains("socials")) {
                         .socialLinks {
                             display: flex;
-                            flex-direction: column;
-                            gap: 5px;
+                            flex-direction: row; // Changed to row for mobile
+                            flex-wrap: wrap; // Allow social links to wrap
+                            gap: 10px; // Horizontal gap between social links
         
                             @media (min-width: 768px) {
+                                flex-direction: column;
                                 gap: 5px;
                             }
         
@@ -238,11 +243,12 @@
                                 margin: 0;
                                 padding: 0;
                             }
-
+        
                             p {
                                 margin: 0;
                                 padding: 2.5px;
                                 display: inline-block;
+                                white-space: nowrap; // Prevent text wrapping
                             }
                         }
                     }
@@ -252,6 +258,7 @@
                     margin: 0;
                     padding: 2.5px;
                     cursor: pointer;
+                    white-space: nowrap; // Prevent text wrapping
                 }
         
                 p {
@@ -283,7 +290,6 @@
                 }
             }
         }
-        
 
     .a {
         text-decoration: none;
