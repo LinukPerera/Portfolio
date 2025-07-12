@@ -45,20 +45,28 @@ export default function Index() {
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
                 >
-                  <Link
-                    href="https://www.linkedin.com/in/linukperera"
-                    passHref
-                    legacyBehavior
-                  >
-                    <Rounded 
-                      as="a" // Tell Rounded to render as an anchor tag
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${styles.button} ${!isHovered ? styles.notHovered : ''}`}
+                  <Rounded className={`${styles.button} ${!isHovered ? styles.notHovered : ''}`}>
+                    <Link
+                      href="https://www.linkedin.com/in/linukperera"
+                      passHref
+                      legacyBehavior
                     >
-                      LinkedIn
-                    </Rounded>
-                  </Link>
+                      <a 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.link}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}
+                      >
+                        LinkedIn
+                      </a>
+                    </Link>
+                  </Rounded>
                 </div>
             </div>
         </div>
