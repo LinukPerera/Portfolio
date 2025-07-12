@@ -111,11 +111,11 @@ export default function Home() {
           />
         ))}
       </div>
-      <link href="https://github.com/LinukPerera" passHref>
+      <a href="https://github.com/LinukPerera" target="_blank" rel="noopener noreferrer">
         <Rounded>
           <p>More work</p>
         </Rounded>
-      </link>
+      </a>
       {!isMobile && (
         <>
           <motion.div 
