@@ -45,23 +45,16 @@ export default function Index() {
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
                 >
-                  <Rounded className={`${styles.button} ${!isHovered ? styles.notHovered : ''}`}>
-                    <a
-                      href="https://www.linkedin.com/in/linukperera"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.link}
-                      style={{
-                        display: 'flex',
-                        width: '100%',
-                        height: '100%',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }}
-                    >
-                      LinkedIn
-                    </a>
-                  </Rounded>
+                  <a
+                    href="https://www.linkedin.com/in/linukperera"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.linkWrapper} // New wrapper class
+                  >
+                    <Rounded className={`${styles.button} ${!isHovered ? styles.notHovered : ''}`}>
+                      <span className={styles.linkText}>LinkedIn</span>
+                    </Rounded>
+                  </a>
                 </div>
             </div>
         </div>
