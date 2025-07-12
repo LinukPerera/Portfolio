@@ -40,21 +40,18 @@ export default function Index() {
                 <motion.p variants={opacity} animate={isInView ? "open" : "closed"}>
                     Driven by a love for problem-solving, I try to be novel when developing solutions that tackle real-world challenges using tech.
                 </motion.p>
-                <div
-                  className={styles.buttonWrapper}
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                >
-                  <a
+                <div className={styles.buttonContainer}>
+                  <Rounded 
+                    as="a"
                     href="https://www.linkedin.com/in/linukperera"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={styles.linkWrapper} // New wrapper class
+                    className={`${styles.button} ${isHovered ? styles.hovered : ''}`}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
                   >
-                    <Rounded className={`${styles.button} ${!isHovered ? styles.notHovered : ''}`}>
-                      <span className={styles.linkText}>LinkedIn</span>
-                    </Rounded>
-                  </a>
+                    LinkedIn
+                  </Rounded>
                 </div>
             </div>
         </div>
