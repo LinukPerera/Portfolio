@@ -89,4 +89,23 @@
     .cursorLabel {
         background-color: transparent;
     }
+    .a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    
+        @media (min-width: 768px) {
+        padding: 10px 20px;
+        width: auto;
+        text-align: left;
+        display: inline-block;
+        }
+    }
 }
