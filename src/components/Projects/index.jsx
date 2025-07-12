@@ -110,7 +110,7 @@ export default function Home() {
           />
         ))}
       </div>
-      <Rounded>
+      <Rounded href="www.linkedin.com/in/linukpereral">
         <p>More work</p>
       </Rounded>
       {!isMobile && (
