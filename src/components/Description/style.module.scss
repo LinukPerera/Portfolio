@@ -56,6 +56,10 @@
         }
 
         .button {
+            text-decoration: none; // Removes underline
+            color: white;         // Maintains your color scheme
+            // padding: 8px 15px;    // Consistent padding
+            // border-radius: 5px;   // Matches rounded theme
             position: static;
             margin-top: 30px;
             width: 120px;
@@ -67,7 +71,12 @@
             align-items: center;
             justify-content: center;
             transition: background-color 0.3s ease;
-
+            
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1); // Subtle hover effect
+                transition: background-color 0.2s ease;
+            }
+            
             @media (min-width: 768px) {
                 position: absolute;
                 top: 80%;
@@ -165,32 +174,6 @@
         @media (min-width: 768px) {
             padding: 20px;
             border-radius: 40px;
-        }
-    }
-    .a {
-        text-decoration: none; // Removes underline
-        color: white;         // Maintains your color scheme
-        padding: 8px 15px;    // Consistent padding
-        border-radius: 5px;   // Matches rounded theme
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        width: 100%;
-        box-sizing: border-box;
-        cursor: pointer;      // Add this for better UX
-    
-        // Optional: Add hover effect to match your theme
-        &:hover {
-            background-color: rgba(255, 255, 255, 0.1); // Subtle hover effect
-            transition: background-color 0.2s ease;
-        }
-    
-        @media (min-width: 768px) {
-            padding: 10px 20px;
-            width: auto;
-            text-align: left;
-            display: inline-block;
         }
     }
 }
