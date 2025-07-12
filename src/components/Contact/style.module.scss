@@ -185,6 +185,7 @@
             }
         }
 
+
         .info {
             display: flex;
             flex-direction: column;
@@ -199,12 +200,12 @@
                 margin-top: 200px;
                 padding: 20px;
             }
-
+        
             div {
                 display: flex;
                 flex-direction: column;
                 gap: 15px;
-
+        
                 @media (min-width: 768px) {
                     flex-direction: row;
                     gap: 10px;
@@ -214,25 +215,26 @@
                     display: flex;
                     flex-direction: column;
                     gap: 3px;
-
+        
                     @media (min-width: 768px) {
                         gap: 15px;
                     }
-                }
 
-                /* Align socials in PC view */
-                span:has(h3:contains("socials")) {
-                    @media (min-width: 768px) {
+                    // Social links container
+                    &:has(h3:contains("socials")) {
                         .socialLinks {
                             display: flex;
                             flex-direction: column;
-                            align-items: flex-start;
-                            gap: 5px; /* Reduced gap for tighter alignment */
-
+                            gap: 5px;
+        
+                            @media (min-width: 768px) {
+                                gap: 5px;
+                            }
+        
                             .magnetic {
-                                display: inline-block; /* Ensure Magnetic doesn't interfere */
-                                position: static; /* Reset positioning */
-                                transform: none; /* Reset transforms */
+                                display: inline-block;
+                                position: static;
+                                transform: none;
                                 margin: 0;
                                 padding: 0;
                             }
@@ -241,19 +243,17 @@
                                 margin: 0;
                                 padding: 2.5px;
                                 display: inline-block;
-                                position: static; /* Reset positioning */
-                                transform: none; /* Reset transforms */
                             }
                         }
                     }
                 }
-
+        
                 p, h3 {
                     margin: 0;
                     padding: 2.5px;
                     cursor: pointer;
                 }
-
+        
                 p {
                     &::after {
                         content: "";
@@ -267,14 +267,14 @@
                         transform: translateX(-50%);
                         transition: width 0.2s linear;
                     }
-
+        
                     &:hover {
                         &::after {
                             width: 100%;
                         }
                     }
                 }
-
+        
                 h3 {
                     color: grey;
                     cursor: default;
@@ -283,25 +283,25 @@
                 }
             }
         }
-    }
-}
+        
 
-.a {
-    text-decoration: none;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-
-    @media (min-width: 768px) {
-        padding: 10px 20px;
-        width: auto;
-        text-align: left;
-        display: inline-block;
+    .a {
+        text-decoration: none;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+    
+        @media (min-width: 768px) {
+            padding: 10px 20px;
+            width: auto;
+            text-align: left;
+            display: inline-block;
+        }
     }
-}
+}}
