@@ -54,7 +54,7 @@ export default function Header() {
                     <Magnetic>
                         <div className={styles.el}>
                             <a 
-                                href="/files/LinukPereraCV.pdf" 
+                                href="/files/LinukPereraCV.PDF" 
                                 download
                                 className={pathname === "/download-cv" ? styles.active : ""}
                             >
