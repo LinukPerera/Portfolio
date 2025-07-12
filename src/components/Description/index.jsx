@@ -46,14 +46,17 @@ export default function Index() {
                     onMouseLeave={() => setIsHovered(false)}
                 >
                     <Rounded className={`${styles.button} ${!isHovered ? styles.notHovered : ''}`}>
-                        <Link
-                            href="/about"
-                            className={`${styles.link} ${pathname === "/about" ? styles.active : ""}`}
-                            legacyBehavior
-                        >
-                            <a>About</a>
-                        </Link>
+                        <a href="https://github.com/LinukPerera" target="_blank" rel="noopener noreferrer">
+                          <Rounded>
+                            <p>More work</p>
+                          </Rounded>
+                        </a>
                     </Rounded>
+                    <a href="https://github.com/LinukPerera" target="_blank" rel="noopener noreferrer" className={styles.a} >
+                      <Rounded>
+                        <p>About</p>
+                      </Rounded>
+                    </a>
                 </div>
             </div>
         </div>
