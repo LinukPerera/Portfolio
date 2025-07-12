@@ -14,7 +14,7 @@ const navItems = [
   },
   {
     title: "Download CV",
-    href: "/files/LinukPereraCV.pdf",
+    href: "/files/LinukPereraCV.PDF",
     download: true, // Indicate that this link should trigger a download
   },
 ];
