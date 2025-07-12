@@ -55,6 +55,35 @@
             }
         }
 
+        // New wrapper that makes the entire area clickable
+        .linkWrapper {
+          display: block;
+          width: 100%;
+          height: 100%;
+          text-decoration: none;
+          
+          // Mobile-specific touch area expansion
+          @media (max-width: 767px) {
+            padding: 20px; // Makes touch area larger
+            margin: -20px; // Compensates for padding
+          }
+        }
+        
+        .linkText {
+          color: white;
+          font-size: 14px;
+          font-weight: 300;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          
+          @media (min-width: 768px) {
+            font-size: 16px;
+          }
+        }
+
         .button {
             text-decoration: none; // Removes underline
             color: white;         // Maintains your color scheme
@@ -84,7 +113,10 @@
                 width: 180px;
                 height: 180px;
                 margin-top: 0;
-            }
+                pointer-events: none;
+    
+                & > * {
+                  pointer-events: auto;}
 
             /* Enforce initial state: no purple background */
             background-color: #1C1D20 !important;
