@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';
 import Rounded from '../../common/RoundedButton';
+import Link from 'next/link';
 
 const projects = [
   {
