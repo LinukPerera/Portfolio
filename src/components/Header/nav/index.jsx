@@ -14,7 +14,6 @@ const navItems = [
   },
   {
     title: "Download CV",
-    // href: "https://github.com/LinukPerera/Portfolio/blob/main/files/LinukPereraCV.pdf", // Path to the PDF in the public directory 
     href: "/files/LinukPereraCV.pdf",
     download: true, // Indicate that this link should trigger a download
   },
