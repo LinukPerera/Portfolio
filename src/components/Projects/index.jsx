@@ -110,9 +110,11 @@ export default function Home() {
           />
         ))}
       </div>
-      <Rounded href="https://github.com/LinukPerera">
-        <p>More work</p>
-      </Rounded>
+      <link href="https://github.com/LinukPerera" passHref>
+        <Rounded>
+          <p>More work</p>
+        </Rounded>
+      </link>
       {!isMobile && (
         <>
           <motion.div 
