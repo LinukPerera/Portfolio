@@ -45,7 +45,7 @@ export default function Index() {
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                 >
-                    <a href="https://github.com/LinukPerera" target="_blank" rel="noopener noreferrer" className={styles.a} >
+                    <a href="https://github.com/LinukPerera" target="_blank" rel="noopener noreferrer" className={styles.button} >
                       <Rounded>
                         <p>About</p>
                       </Rounded>
