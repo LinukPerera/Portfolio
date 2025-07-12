@@ -9,11 +9,11 @@ import { usePathname } from 'next/navigation';
 export default function Index() {
     const pathname = usePathname();
     const [isActive, setIsActive] = useState(false);
-    const [isHovered, setIsHovered] = useState(false); // Track hover state
+    const [isHovered, setIsHovered] = useState(false);
 
     useEffect(() => {
         setIsActive(false);
-        setIsHovered(false); // Reset hover state on pathname change
+        setIsHovered(false);
     }, [pathname]);
 
     const phrase = "I'm an Electrical and Electronics Engineering undergrad, MBCS, and IET volunteer with a passion for tech, ML, fintech, web development, and physics. Always exploring new ideas and building projects along the way!";
@@ -45,11 +45,16 @@ export default function Index() {
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                 >
-                    <a href="https://github.com/LinukPerera" target="_blank" rel="noopener noreferrer" className={styles.button} >
-                      <Rounded>
-                        <p>About</p>
-                      </Rounded>
-                    </a>
+                    <Rounded className={`${styles.button} ${!isHovered ? styles.notHovered : ''}`}>
+                        <a 
+                            href="https://www.linkedin.com/in/linukperera" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className={styles.link}
+                        >
+                            LinkedIn
+                        </a>
+                    </Rounded>
                 </div>
             </div>
         </div>
