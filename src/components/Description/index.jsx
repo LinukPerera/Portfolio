@@ -41,25 +41,24 @@ export default function Index() {
                     Driven by a love for problem-solving, I try to be novel when developing solutions that tackle real-world challenges using tech.
                 </motion.p>
                 <div
-                    className={styles.buttonWrapper}
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
+                  className={styles.buttonWrapper}
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
                 >
-                    <Rounded className={`${styles.button} ${!isHovered ? styles.notHovered : ''}`}>
-                        <Link
-                            href="https://www.linkedin.com/in/linukperera"
-                            passHref
-                            legacyBehavior
-                        >
-                            <a 
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={styles.link}
-                            >
-                                LinkedIn
-                            </a>
-                        </Link>
+                  <Link
+                    href="https://www.linkedin.com/in/linukperera"
+                    passHref
+                    legacyBehavior
+                  >
+                    <Rounded 
+                      as="a" // Tell Rounded to render as an anchor tag
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${styles.button} ${!isHovered ? styles.notHovered : ''}`}
+                    >
+                      LinkedIn
                     </Rounded>
+                  </Link>
                 </div>
             </div>
         </div>
