@@ -110,7 +110,7 @@ export default function Home() {
           />
         ))}
       </div>
-      <a href="https://github.com/LinukPerera" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/LinukPerera" target="_blank" rel="noopener noreferrer" className={styles.a}>
         <Rounded>
           <p>More work</p>
         </Rounded>
