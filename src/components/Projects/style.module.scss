@@ -104,6 +104,7 @@
     
         // Optional: Add hover effect to match your theme
         &:hover {
+            color: white;
             background-color: rgba(255, 255, 255, 0.1); // Subtle hover effect
             transition: background-color 0.2s ease;
         }
