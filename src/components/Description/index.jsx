@@ -16,7 +16,7 @@ export default function Index() {
         setIsHovered(false);
     }, [pathname]);
 
-    const phrase = "I'm an Electrical and Electronics Engineering masters student, MBCS, and IET volunteer with a passion for reserach in ML, Transformers, Physics models and Intelligent Systems. Always exploring new ideas and building projects along the way!";
+    const phrase = "I'm an Electrical and Electronics Engineering masters student, MBCS, and IET volunteer with a passion for reserach in ML and Intelligent Systems. Always exploring new ideas and building projects along the way!";
     const description = useRef(null);
     const isInView = useInView(description);
 
