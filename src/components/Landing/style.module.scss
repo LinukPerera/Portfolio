@@ -1,13 +1,15 @@
 .landing {
   position: relative;
   display: flex;
-  min-height: 100vh; // Changed from height to min-height
-  height: auto; // Allow content to expand
-  overflow: visible; // Changed from hidden to visible
+  min-height: 100vh;
+  height: auto;
+  /* Ensure the landing section itself doesn't allow horizontal leakage */
+  width: 100vw; 
+  overflow: hidden; 
 
   img {
     object-fit: cover;
-    position: fixed; // Make background fixed
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -18,9 +20,11 @@
   .sliderContainer {
     position: absolute;
     width: 100%;
+    /* THE CRITICAL FIX: This hides the text that is positioned at left: 100% */
+    overflow: hidden; 
     
     // Mobile position
-    top: calc(100vh - 200px); // Moved up slightly
+    top: calc(100vh - 200px);
     
     @media (min-width: 768px) {
       top: calc(100vh - 350px);
@@ -63,26 +67,25 @@
     
     // Mobile styles
     left: 10%;
-    top: 15%; // Moved higher up
+    top: 15%; 
     width: 80%;
     font-size: 16px;
     
-    // Align items to the left
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     
     svg {
       transform: scale(1.5);
-      margin-bottom: 20px; // Reduced space between SVG and text
+      margin-bottom: 20px; 
     }
     
     p {
-      margin: 5px 0; // Tighter spacing between paragraphs
+      margin: 5px 0; 
       text-align: left;
     }
   
-    // PC styles (unchanged)
+    // PC styles
     @media (min-width: 768px) {
       top: 35%;
       left: 65%;
