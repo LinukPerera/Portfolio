@@ -35,7 +35,7 @@ import Rounded from '../../common/RoundedButton';
 //   {
 //     title: "Intelligent Digital Twin for Telecommunications",
 //     src: "digital_twin.png",
-//     color: "#0B0B0B"
+//     color: "#FFFFFF"
 //   },
 //   { 
 //     title: "Environment Monitoring for Sri Lankan Airlines", 
@@ -45,12 +45,12 @@ import Rounded from '../../common/RoundedButton';
 //   {
 //     title: "Neural Network-Driven Augmented Reality for Gesture Control",
 //     src: "ar_gesture_control.png", // new image
-//     color: "#0B0B0B"
+//     color: "#FFFFFF"
 //   },
 //   {
 //     title: "Physics-Constrained Transformer for Cyclone Trajectory and Damage Prediction",
 //     src: "cyclone_transformer.png",
-//     color: "#0B0B0B"
+//     color: "#FFFFFF"
 //   }
 // ];
 
