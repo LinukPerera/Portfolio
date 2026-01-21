@@ -31,10 +31,33 @@ import Rounded from '../../common/RoundedButton';
 //   }
 // ];
 
+// const projects = [
+//   {
+//     title: "Intelligent Digital Twin for Telecommunications",
+//     src: "digital_twin.png",
+//     color: "#0B0B0B"
+//   },
+//   { 
+//     title: "Environment Monitoring for Sri Lankan Airlines", 
+//     src: "sla1.png", 
+//     color: "#000000" 
+//   },
+//   {
+//     title: "Neural Network-Driven Augmented Reality for Gesture Control",
+//     src: "ar_gesture_control.png", // new image
+//     color: "#0B0B0B"
+//   },
+//   {
+//     title: "Physics-Constrained Transformer for Cyclone Trajectory and Damage Prediction",
+//     src: "cyclone_transformer.png",
+//     color: "#0B0B0B"
+//   }
+// ];
+
 const projects = [
   {
-    title: "Intelligent Digital Twin for Telecommunications",
-    src: "digital_twin.png",
+    title: "Physics-Constrained Transformer for Cyclone Trajectory and Damage Prediction",
+    src: "cyclone_transformer.png",
     color: "#0B0B0B"
   },
   { 
@@ -44,12 +67,12 @@ const projects = [
   },
   {
     title: "Neural Network-Driven Augmented Reality for Gesture Control",
-    src: "ar_gesture_control.png", // new image
+    src: "ar_gesture_control.png",
     color: "#0B0B0B"
   },
   {
-    title: "Physics-Constrained Transformer for Cyclone Trajectory and Damage Prediction",
-    src: "cyclone_transformer.png",
+    title: "Intelligent Digital Twin for Telecommunications",
+    src: "digital_twin.png",
     color: "#0B0B0B"
   }
 ];
