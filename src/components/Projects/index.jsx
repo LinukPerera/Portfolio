@@ -8,26 +8,49 @@ import gsap from 'gsap';
 import Image from 'next/image';
 import Rounded from '../../common/RoundedButton';
 
+// const projects = [
+//   {
+//     title: "Neural Network-Driven Augmented Reality for Gesture Control",
+//     src: "sla1.png",
+//     color: "#000000"
+//   },
+//   {
+//     title: "Environment Monitoring for Sri Lankan Airlines",
+//     src: "sla1.png",
+//     color: "#000000"
+//   },
+//   {
+//     title: "Audio to MIDI Converter",
+//     src: "a2midi.png",
+//     color: "#8C8C8C"
+//   },
+//   {
+//     title: "ML Based Predictive Frequency Analyzer",
+//     src: "fxa1.png",
+//     color: "#EFE8D3"
+//   }
+// ];
+
 const projects = [
   {
+    title: "Intelligent Digital Twin for Telecommunications",
+    src: "digital_twin.png",
+    color: "#0B0B0B"
+  },
+  { 
+    title: "Environment Monitoring for Sri Lankan Airlines", 
+    src: "sla1.png", 
+    color: "#000000" 
+  },
+  {
     title: "Neural Network-Driven Augmented Reality for Gesture Control",
-    src: "sla1.png",
-    color: "#000000"
+    src: "ar_gesture_control.png", // new image
+    color: "#0B0B0B"
   },
   {
-    title: "Environment Monitoring for Sri Lankan Airlines",
-    src: "sla1.png",
-    color: "#000000"
-  },
-  {
-    title: "Audio to MIDI Converter",
-    src: "a2midi.png",
-    color: "#8C8C8C"
-  },
-  {
-    title: "ML Based Predictive Frequency Analyzer",
-    src: "fxa1.png",
-    color: "#EFE8D3"
+    title: "Physics-Constrained Transformer for Cyclone Trajectory and Damage Prediction",
+    src: "cyclone_transformer.png",
+    color: "#0B0B0B"
   }
 ];
 
