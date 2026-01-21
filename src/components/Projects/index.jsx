@@ -277,7 +277,8 @@ export default function Home() {
             "@type": "ImageObject",
             name: project.title,
             description: project.description,
-            contentUrl: `https://yourdomain.com/images/${project.src}`,
+            // contentUrl: `https://yourdomain.com/images/${project.src}`,
+            contentUrl: `https://portfoliolinukperera.vercel.app`,
             creator: {
               "@type": "Person",
               name: "Linuk Perera"
